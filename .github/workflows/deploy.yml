@@ -1,0 +1,63 @@
+name: Deploy to Server (master push)
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    env:
+      SERVER_HOST: ${{secrets.SERVER_IP}}
+      SERVER_USER: ${{secrets.SERVER_USER}}
+      REMOTE_PATH: ${{secrets.THEME_PATH}}
+
+    steps:
+      - name: Checkout repository (context only)
+        uses: actions/checkout@v4
+
+      - name: Setup SSH agent
+        uses: webfactory/ssh-agent@v0.8.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Add remote host to known_hosts
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -H "$SERVER_HOST" >> ~/.ssh/known_hosts
+
+      - name: SSH deploy (git pull + composer install)
+        run: |
+          ssh -o StrictHostKeyChecking=no "$SERVER_USER@$SERVER_HOST" << 'EOSSH'
+            set -euo pipefail
+          
+            cd ${{secrets.THEME_PATH}}
+
+            if [ -d .git ]; then
+              # Ensure on master and pull latest
+              git fetch origin --prune
+              if git show-ref --verify --quiet refs/heads/main; then
+                git checkout main
+              else
+                git checkout -b master origin/main
+              fi
+              git pull --rebase origin main
+            else
+              echo "Error: Not a git repository at $REMOTE_PATH" >&2
+              exit 1
+            fi
+
+            # Composer install (no dev)
+            if command -v composer >/dev/null 2>&1; then
+              composer install --no-dev --prefer-dist --no-progress --no-interaction
+            elif [ -x "/usr/local/bin/composer" ]; then
+              /usr/local/bin/composer install --no-dev --prefer-dist --no-progress --no-interaction
+            elif [ -x "/usr/bin/composer" ]; then
+              /usr/bin/composer install --no-dev --prefer-dist --no-progress --no-interaction
+            else
+              echo "Composer not found on server PATH" >&2
+              exit 1
+            fi
+          EOSSH
