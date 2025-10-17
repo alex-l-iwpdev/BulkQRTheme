@@ -39,5 +39,22 @@ class Main {
 	 */
 	private function init(): void {
 
+		add_action( 'wp_enqueue_scripts', [ $this, 'add_scripts_and_styles' ] );
+
+	}
+
+	/**
+	 * Enqueues theme scripts and styles.
+	 *
+	 * This method registers and enqueues the JavaScript and CSS files required by the theme.
+	 * It ensures proper dependency management, versioning, and script loading in the footer.
+	 *
+	 * @return void
+	 */
+	public function add_scripts_and_styles(): void {
+
+		wp_enqueue_script( 'main-script', get_template_directory_uri() . '/assets/js/app.js', [ 'jquery' ], self::THEME_VERSION, true );
+
+		wp_enqueue_style( 'main-style', get_template_directory_uri() . '/assets/css/app.css', '', self::THEME_VERSION );
 	}
 }
