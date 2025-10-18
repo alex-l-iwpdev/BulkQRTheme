@@ -43,7 +43,7 @@ jobs:
               else
                 git checkout -b master origin/main
               fi
-              git pull --rebase origin main
+              git pull 
             else
               echo "Error: Not a git repository at $REMOTE_PATH" >&2
               exit 1
