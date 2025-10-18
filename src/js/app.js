@@ -1,2 +1,14 @@
 import admin from './Admin/main.js';
 
+/**
+ * Libs
+ */
+import 'bootstrap/js/src/modal.js';
+import 'bootstrap/js/src/tab.js';
+import 'selectric/src/jquery.selectric.js';
+import 'slick-carousel/slick/slick.js';
+
+/**
+ * Blocks
+ */
+

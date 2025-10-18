@@ -1,0 +1,30 @@
+header{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 80px;
+    padding: 10px 0;
+    z-index: 99;
+    .logo{
+        display: flex;
+        flex-direction: column;
+        
+    }
+    .menu{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: end;
+        gap: 24px;
+        .btn{
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+    & + section{
+        padding-top: 112px;
+    }
+    
+}

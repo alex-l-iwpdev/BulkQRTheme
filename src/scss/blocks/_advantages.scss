@@ -1,0 +1,52 @@
+
+.advantages{
+    h2{
+        text-align: center;
+    }
+}
+.advantages-items{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-column-gap: 24px;
+    grid-row-gap: 24px;
+    .advantages-item{
+        &:nth-of-type(1){
+            grid-area: 1 / 1 / 4 / 2; 
+            background-image: url(../images/qr.png);
+        }
+        &:nth-of-type(2){ 
+            grid-area: 1 / 2 / 3 / 3;
+            background-image: url(../images/wallet.png);
+            background-position: center -50%;
+        }
+        &:nth-of-type(3){ 
+            grid-area: 3 / 2 / 4 / 3;
+            background-image: url(../images/api.png);
+        }
+        &:nth-of-type(4){
+            grid-area: 4 / 1 / 7 / 2;
+            background-image: url(../images/mail.png);
+        }
+        &:nth-of-type(5) { 
+            grid-area: 4 / 2 / 7 / 3;
+            background-image: url(../images/Account.png); 
+            background-position: center -100%;
+        }
+        padding: 24px;
+        background: var(--blueTransition);
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: auto 95%;
+        h3{
+            text-align: center;
+            margin-bottom: 0;
+        }
+    }
+
+}
