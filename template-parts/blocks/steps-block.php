@@ -26,7 +26,7 @@ $fields = $args['fields'];
 							?>
 							<img
 									src="<?php echo esc_url( $image ); ?>"
-									alt="<?php echo esc_attr( get_the_title( $image ) ); ?>">
+									alt="<?php echo esc_attr( get_the_title( $step['image'] ) ); ?>">
 						<?php } ?>
 						<?php if ( ! empty( $step['step_title'] ) ) { ?>
 							<h4><?php echo esc_html( $step['step_title'] ); ?></h4>

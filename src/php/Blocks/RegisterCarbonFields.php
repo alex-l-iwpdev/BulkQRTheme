@@ -52,6 +52,7 @@ class RegisterCarbonFields {
 
 
 	public function register_carbon_fields_gutenberg_blocks(): void {
+		//Steps Block.
 		Block::make( __( 'Steps Block', 'bulk-qr-theme' ) )
 			->add_fields(
 				[
@@ -77,6 +78,27 @@ class RegisterCarbonFields {
 					]
 				);
 			} );
-	}
 
+		// Hero slider.
+		Block::make( __( 'Hero Banner', 'bulk-qr-theme' ) )
+			->add_fields(
+				[
+					Field::make( 'text', 'banner_title', __( 'Banner Title', 'bulk-qr-theme' ) ),
+					Field::make( 'text', 'banner_description', __( 'Banner Description', 'bulk-qr-theme' ) ),
+					Field::make( 'image', 'banner_image', __( 'Banner Image', 'bulk-qr-theme' ) ),
+				]
+			)
+			->set_category( 'bulk-qr-theme', 'Blocks', 'admin-appearance' )
+			->set_render_callback( function ( $fields, $attributes, $inner_blocks ) {
+				get_template_part(
+					'template-parts/blocks/hero',
+					'banner',
+					[
+						'attributes'   => $attributes,
+						'inner_blocks' => $inner_blocks,
+						'fields'       => $fields,
+					]
+				);
+			} );
+	}
 }
