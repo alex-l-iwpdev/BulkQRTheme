@@ -8,6 +8,8 @@
 
 namespace Iwpdev\BulkQrTheme;
 
+use Iwpdev\BulkQrTheme\Blocks\RegisterCarbonFields;
+
 /**
  * Main class for the theme.
  *
@@ -40,6 +42,8 @@ class Main {
 	private function init(): void {
 
 		add_action( 'wp_enqueue_scripts', [ $this, 'add_scripts_and_styles' ] );
+		
+		new RegisterCarbonFields();
 
 	}
 

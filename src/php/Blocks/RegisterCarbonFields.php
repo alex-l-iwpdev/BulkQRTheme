@@ -34,8 +34,8 @@ class RegisterCarbonFields {
 	 * @return void
 	 */
 	private function init(): void {
-		add_action( 'after_setup_theme', 'boot_carbon_fields' );
-		add_action( 'carbon_fields_register_fields', 'register_carbon_fields_gutenberg_blocks' );
+		add_action( 'after_setup_theme', [ $this, 'boot_carbon_fields' ] );
+		add_action( 'carbon_fields_register_fields', [ $this, 'register_carbon_fields_gutenberg_blocks' ] );
 	}
 
 	/**
