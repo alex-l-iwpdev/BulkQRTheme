@@ -79,7 +79,7 @@ class RegisterCarbonFields {
 				);
 			} );
 
-		// Hero slider.
+		// Hero banner.
 		Block::make( __( 'Hero Banner', 'bulk-qr-theme' ) )
 			->add_fields(
 				[
@@ -93,6 +93,33 @@ class RegisterCarbonFields {
 				get_template_part(
 					'template-parts/blocks/hero',
 					'banner',
+					[
+						'attributes'   => $attributes,
+						'inner_blocks' => $inner_blocks,
+						'fields'       => $fields,
+					]
+				);
+			} );
+
+		// Hero Slider.
+		Block::make( __( 'Hero Slider', 'bulk-qr-theme' ) )
+			->add_fields(
+				[
+					Field::make( 'complex', 'hero_slider', __( 'Hero Slider', 'bulk-qr-theme' ) )
+						->add_fields(
+							[
+								Field::make( 'text', 'slide_title', __( 'Slide Title', 'bulk-qr-theme' ) ),
+								Field::make( 'text', 'slide_description', __( 'Slide Description', 'bulk-qr-theme' ) ),
+								Field::make( 'image', 'slide_image', __( 'Slide', 'bulk-qr-theme' ) ),
+							]
+						),
+				]
+			)
+			->set_category( 'bulk-qr-theme', 'Blocks', 'admin-appearance' )
+			->set_render_callback( function ( $fields, $attributes, $inner_blocks ) {
+				get_template_part(
+					'template-parts/blocks/hero',
+					'slider',
 					[
 						'attributes'   => $attributes,
 						'inner_blocks' => $inner_blocks,
