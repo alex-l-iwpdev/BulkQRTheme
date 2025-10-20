@@ -5,6 +5,8 @@
  * @package iwpdev/bulk-qr-theme
  */
 
+use Iwpdev\BulkQrTheme\Nav\NavMenu;
+
 ?>
 <header>
 	<div class="container">
@@ -13,14 +15,23 @@
 				<?php the_custom_logo(); ?>
 			</div>
 			<div class="col">
-				<ul class="menu">
-					<li><a href="#">Resource</a></li>
-					<li><a href="#">Plans and Prices</a></li>
-					<li><a href="#">Api</a></li>
-					<li><a href="#">FAQ</a></li>
-					<li class="btn"><a href="#" data-modal="sign-in">Login</a></li>
-					<li class="btn"><a href="#" data-modal="sign-up">Sign up</a></li>
-				</ul>
+				<?php
+				if ( has_nav_menu( 'header_menu' ) ) {
+					wp_nav_menu(
+							[
+									'theme_location'  => 'header_menu',
+									'container'       => '',
+									'container_class' => '',
+									'container_id'    => '',
+									'menu_class'      => 'menu',
+									'menu_id'         => '',
+									'echo'            => true,
+									'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+									'depth'           => 0,
+							]
+					);
+				}
+				?>
 			</div>
 		</div>
 	</div>

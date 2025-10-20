@@ -45,7 +45,6 @@ class Main {
 		add_action( 'after_setup_theme', [ $this, 'add_theme_supports' ] );
 		add_filter( 'upload_mimes', [ $this, 'svg_upload_allow' ] );
 
-
 		new RegisterCarbonFields();
 
 	}
