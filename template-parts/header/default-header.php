@@ -10,7 +10,7 @@
 	<div class="container">
 		<div class="row align-items-center">
 			<div class="col-auto">
-				<a class="logo" href="#"> <img src="images/logo.svg" alt="logo"></a>
+				<?php the_custom_logo(); ?>
 			</div>
 			<div class="col">
 				<ul class="menu">
