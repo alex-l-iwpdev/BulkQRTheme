@@ -9,25 +9,51 @@
 <footer>
 	<div class="container">
 		<div class="row">
-			<div class="col-auto"><a class="logo" href="/"><img src="images/logo.svg" alt=""></a></div>
+			<div class="col-auto">
+				<?php the_custom_logo(); ?>
+			</div>
 			<div class="col">
-				<ul class="menu">
-					<li><a href="">Resource</a></li>
-					<li><a href="">Plans and Prices</a></li>
-					<li><a href="">Api</a></li>
-					<li><a href="">FAQ</a></li>
-				</ul>
+				<?php
+				if ( has_nav_menu( 'footer_menu' ) ) {
+					wp_nav_menu(
+							[
+									'theme_location'  => 'footer_menu',
+									'container'       => '',
+									'container_class' => '',
+									'container_id'    => '',
+									'menu_class'      => 'menu',
+									'menu_id'         => '',
+									'echo'            => true,
+									'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+									'depth'           => 0,
+							]
+					);
+				}
+				?>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-auto">
-				<p class="copyright">© IWPDev. since 2019. All rights reserved.</p>
+				<p class="copyright"><?php echo sprintf( '© %s. since %d. All rights reserved.', get_bloginfo( 'name' ), date( 'Y' ) ) ?></p>
 			</div>
 			<div class="col">
-				<ul class="privacy-menu">
-					<li><a href="#">Terms of use </a></li>
-					<li><a href="#">Privacy policy</a></li>
-				</ul>
+				<?php
+				if ( has_nav_menu( 'footer_term_menu' ) ) {
+					wp_nav_menu(
+							[
+									'theme_location'  => 'footer_term_menu',
+									'container'       => '',
+									'container_class' => '',
+									'container_id'    => '',
+									'menu_class'      => 'privacy-menu',
+									'menu_id'         => '',
+									'echo'            => true,
+									'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+									'depth'           => 0,
+							]
+					);
+				}
+				?>
 			</div>
 		</div>
 	</div>

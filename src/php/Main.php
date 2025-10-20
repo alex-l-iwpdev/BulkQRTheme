@@ -75,8 +75,9 @@ class Main {
 	public function add_theme_supports(): void {
 		register_nav_menus(
 			[
-				'header_menu' => __( 'Header Menu', 'bulkqr' ),
-				'footer_menu' => __( 'Footer Menu', 'bulkqr' ),
+				'header_menu'      => __( 'Header Menu', 'bulkqr' ),
+				'footer_menu'      => __( 'Footer Menu', 'bulkqr' ),
+				'footer_term_menu' => __( 'Footer Term Menu', 'bulkqr' ),
 			]
 		);
 
