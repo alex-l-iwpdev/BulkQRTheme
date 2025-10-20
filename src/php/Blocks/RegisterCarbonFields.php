@@ -127,5 +127,35 @@ class RegisterCarbonFields {
 					]
 				);
 			} );
+
+		// Text and Image.
+		Block::make( __( 'Text and Image', 'bulk-qr-theme' ) )
+			->add_fields(
+				[
+					Field::make( 'radio', 'image_position', __( 'Image Position', 'bulk-qr-theme' ) )
+						->set_options(
+							[
+								'left'  => __( 'Left', 'bulk-qr-theme' ),
+								'right' => __( 'Right', 'bulk-qr-theme' ),
+							]
+						)->set_default_value( 'left' ),
+					Field::make( 'image', 'image', __( 'Image', 'bulk-qr-theme' ) ),
+					Field::make( 'text', 'title', __( 'Title', 'bulk-qr-theme' ) ),
+					Field::make( 'rich_text', 'description', __( 'Description', 'bulk-qr-theme' ) ),
+
+				]
+			)
+			->set_category( 'bulk-qr-theme', 'Blocks', 'admin-appearance' )
+			->set_render_callback( function ( $fields, $attributes, $inner_blocks ) {
+				get_template_part(
+					'template-parts/blocks/text',
+					'image',
+					[
+						'attributes'   => $attributes,
+						'inner_blocks' => $inner_blocks,
+						'fields'       => $fields,
+					]
+				);
+			} );
 	}
 }
