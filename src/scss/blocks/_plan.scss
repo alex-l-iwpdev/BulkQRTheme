@@ -35,9 +35,12 @@
         border: 1px solid var(--blueTransition);
         box-shadow: none;
         border-radius: 4px;
-        top: calc(100% + 10px);
+        top: calc(100% + 10px) !important;
+		position: absolute;
+		z-index: 1;
+        
         li{
-            font-size: 20px;
+            font-size: 16px;
             color: #fff;
             font-weight: 700;
             display: flex;
@@ -45,6 +48,7 @@
             flex-wrap: wrap;
             gap: 8px;
             align-items: center;
+			padding: 10px 16px !important;
             &.highlighted{
                 background: var(--blueTransition);
                 color: #fff;

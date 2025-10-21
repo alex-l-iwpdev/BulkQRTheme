@@ -560,10 +560,14 @@ form{
 }
 .wpforms-container{
     max-width: 100%;
-    margin: 0 auto;
+    width: 100%;
+    margin: 0 auto; 
     padding: 0 12px;
+    .selectric-hide-select{
+        display: none;
+    }
     .wpforms-submit-container{
-        margin-top: 24px;
+        margin-top: 24px !important;
     }
     .wpforms-form{
         background-color: var(--blue);
@@ -587,7 +591,16 @@ form{
         .btn{
             max-width: 200px;
             margin-left: 0;
-            font-size: 18px; 
+            font-size: 18px;
+            border-radius: 4px !important; 
+            height: 48px;
+            border: 2px solid #fff !important;
+            background-color: transparent !important;
+            color: #fff !important;
+            &:hover{
+                background: #ffff !important;
+                color: var(--blue) !important;
+            }
         }
         .select{
             .selectric {
