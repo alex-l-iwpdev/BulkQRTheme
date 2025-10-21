@@ -15,11 +15,11 @@
         width: 100%;
         padding: 10px 16px;
         height: 120px;
-        border: 2px solid #fff;
-        border-radius: 4px;
+        border: 2px solid #fff !important;
+        border-radius: 4px !important;
         font-size: 16px;
-        background: transparent;
-        color: #fff;
+        background: transparent !important;
+        color: #fff !important;
         resize: none;
         &:-webkit-autofill,
         &:-webkit-autofill:hover,
@@ -44,11 +44,12 @@
         left: 12px;
         transform: 0;
         font-size: 16px;
-        color: #fff;
+        color: #fff !important;
         font-weight: 700;
         transition: all 0.3s ease;
         display: block;
         padding: 0 4px;
+        margin: 0 !important;
     }
 }
 .input{
@@ -132,11 +133,12 @@
         left: 12px;
         transform: translateY(-50%);
         font-size: 16px;
-        color: #fff;
+        color: #fff !important;
         font-weight: 700;
         transition: all 0.3s ease;
         display: block;
         padding: 0 4px;
+        margin: 0 !important;
     }
     input{
         &[type="text"],
@@ -147,13 +149,14 @@
         &[type="number"],
         &[type="password"]{
             width: 100%;
+            max-width: 100%;
             padding: 0px 16px;
             height: 48px;
-            border: 2px solid #fff;
-            border-radius: 4px;
-            font-size: 16px;
-            background: transparent;
-            color: #fff;
+            border: 2px solid #fff !important;
+            border-radius: 4px !important;
+            font-size: 16px !important;
+            background: transparent !important;
+            color: #fff !important;
             &:-webkit-autofill,
             &:-webkit-autofill:hover,
             &:-webkit-autofill:focus,
@@ -528,6 +531,7 @@ form{
         flex-wrap: wrap;
         align-items: center;
         gap: 6px;
+        
         .selectric{
             border: 2px solid #fff;
             .button,
@@ -555,6 +559,9 @@ form{
     max-width: 100%;
     margin: 0 auto;
     padding: 0 12px;
+    .wpforms-submit-container{
+        margin-top: 24px;
+    }
     .wpforms-form{
         background-color: var(--blue);
         border-radius: 12px;
