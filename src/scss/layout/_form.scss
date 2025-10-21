@@ -560,7 +560,7 @@ form{
 }
 .wpforms-container{
     max-width: 100%;
-    width: 100%;
+    width: 100% !important;
     margin: 0 auto; 
     padding: 0 12px;
     .selectric-hide-select{
