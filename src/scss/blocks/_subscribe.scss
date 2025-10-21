@@ -1,0 +1,49 @@
+.subscribe{
+    border: 3px dashed var(--blue);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 64px;
+    position: relative;
+    padding: 24px;
+    .subscribe-desc{
+        display: flex;
+        flex-direction: column;
+        width: calc(100% - 328px);
+    }
+    .subscribe-form{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-top: auto;
+        gap: 24px;
+        .input{
+            margin-bottom: 0;
+            width: calc(100% - 204px); 
+            label{
+                background: #0a0a25;
+            }
+        }
+        .btn{
+            width: 180px; 
+            font-size: 18px; 
+        }
+    }
+    h2{
+        font-size: 60px;
+        margin-bottom: 10px;
+    }
+    p{
+
+    }
+    i{
+        position: absolute;
+        left: 50%;
+        top: 0;
+        transform: translate(-50%, -50%) rotate(90deg);
+        font-size: 40px;
+        background: #0A0A25;
+    }
+}

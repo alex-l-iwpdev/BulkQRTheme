@@ -9,6 +9,8 @@
 namespace Iwpdev\BulkQrTheme;
 
 use Iwpdev\BulkQrTheme\Blocks\RegisterCarbonFields;
+use Iwpdev\BulkQrTheme\DB\CreateCustomTables;
+use Iwpdev\BulkQrTheme\Subscribe\SubscribeMailNews;
 
 /**
  * Main class for the theme.
@@ -46,6 +48,8 @@ class Main {
 		add_filter( 'upload_mimes', [ $this, 'svg_upload_allow' ] );
 
 		new RegisterCarbonFields();
+		new SubscribeMailNews();
+		new CreateCustomTables();
 
 	}
 
@@ -62,6 +66,16 @@ class Main {
 		wp_enqueue_script( 'main-script', get_template_directory_uri() . '/assets/js/app.js', [ 'jquery' ], self::THEME_VERSION, true );
 
 		wp_enqueue_style( 'main-style', get_template_directory_uri() . '/assets/css/app.css', '', self::THEME_VERSION );
+
+		wp_localize_script(
+			'main-script',
+			'BulkQRTheme',
+			[
+				'ajaxUrl'         => admin_url( 'admin-ajax.php' ),
+				'subscribeAction' => SubscribeMailNews::BQS_SUBSCRIBE_ACTION_NAME,
+				'subscribeNonce'  => wp_create_nonce( SubscribeMailNews::BQS_SUBSCRIBE_ACTION_NAME ),
+			]
+		);
 	}
 
 	/**

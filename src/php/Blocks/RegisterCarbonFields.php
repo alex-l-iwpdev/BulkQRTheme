@@ -66,7 +66,7 @@ class RegisterCarbonFields {
 						),
 				]
 			)
-			->set_category( 'bulk-qr-theme', 'Blocks', 'admin-appearance' )
+			->set_category( 'bulk-qr-theme', 'BQS Blocks', 'admin-appearance' )
 			->set_render_callback( function ( $fields, $attributes, $inner_blocks ) {
 				get_template_part(
 					'template-parts/blocks/steps',
@@ -88,7 +88,7 @@ class RegisterCarbonFields {
 					Field::make( 'image', 'banner_image', __( 'Banner Image', 'bulk-qr-theme' ) ),
 				]
 			)
-			->set_category( 'bulk-qr-theme', 'Blocks', 'admin-appearance' )
+			->set_category( 'bulk-qr-theme', 'BQS Blocks', 'admin-appearance' )
 			->set_render_callback( function ( $fields, $attributes, $inner_blocks ) {
 				get_template_part(
 					'template-parts/blocks/hero',
@@ -115,7 +115,7 @@ class RegisterCarbonFields {
 						),
 				]
 			)
-			->set_category( 'bulk-qr-theme', 'Blocks', 'admin-appearance' )
+			->set_category( 'bulk-qr-theme', 'BQS Blocks', 'admin-appearance' )
 			->set_render_callback( function ( $fields, $attributes, $inner_blocks ) {
 				get_template_part(
 					'template-parts/blocks/hero',
@@ -145,11 +145,34 @@ class RegisterCarbonFields {
 
 				]
 			)
-			->set_category( 'bulk-qr-theme', 'Blocks', 'admin-appearance' )
+			->set_category( 'bulk-qr-theme', 'BQS Blocks', 'admin-appearance' )
 			->set_render_callback( function ( $fields, $attributes, $inner_blocks ) {
 				get_template_part(
 					'template-parts/blocks/text',
 					'image',
+					[
+						'attributes'   => $attributes,
+						'inner_blocks' => $inner_blocks,
+						'fields'       => $fields,
+					]
+				);
+			} );
+
+		// Subscribe form
+		Block::make( __( 'Subscribe Form', 'bulk-qr-theme' ) )
+			->add_fields(
+				[
+					Field::make( 'image', 'image', __( 'Image', 'bulk-qr-theme' ) ),
+					Field::make( 'text', 'title', __( 'Title', 'bulk-qr-theme' ) ),
+					Field::make( 'rich_text', 'description', __( 'Description', 'bulk-qr-theme' ) ),
+
+				]
+			)
+			->set_category( 'bulk-qr-theme', 'BQS Blocks', 'admin-appearance' )
+			->set_render_callback( function ( $fields, $attributes, $inner_blocks ) {
+				get_template_part(
+					'template-parts/blocks/subscribe',
+					'block',
 					[
 						'attributes'   => $attributes,
 						'inner_blocks' => $inner_blocks,

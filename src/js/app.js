@@ -13,3 +13,5 @@ import form from './modules/form.js';
  * Blocks
  */
 
+import subscribeForm from './blocks/subscribeForm.js';
+
