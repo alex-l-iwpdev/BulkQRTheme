@@ -39,6 +39,7 @@
   },
   "dependencies": {
     "bootstrap-icons": "^1.13.1",
+    "intl-tel-input": "^25.11.3",
     "selectric": "^1.13.0",
     "slick-carousel": "^1.8.1",
     "sweetalert2": "^11.22.0"
