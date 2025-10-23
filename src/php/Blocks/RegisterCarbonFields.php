@@ -250,6 +250,10 @@ class RegisterCarbonFields {
 									->set_width( 50 ),
 								Field::make( 'text', 'cta_button_link', __( 'CTA Button Link', 'bulk-qr-theme' ) )
 									->set_width( 50 ),
+								Field::make( 'text', 'cta_form_link_m', __( 'CTA From link Month', 'bulk-qr-theme' ) )
+									->set_width( 50 ),
+								Field::make( 'text', 'cta_form_link_y', __( 'CTA From link Year', 'bulk-qr-theme' ) )
+									->set_width( 50 ),
 							]
 						),
 

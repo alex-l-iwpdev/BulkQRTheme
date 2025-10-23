@@ -46,12 +46,12 @@ $fields = $args['fields'];
 						<?php foreach ( $fields['plans_items'] as $item ) { ?>
 							<div class="plans-item">
 								<?php if ( ! empty( $item['plan_title'] ) ) { ?>
-									<h4><?php esc_html( $item['plan_title'] ); ?></h4>
+									<h4><?php echo esc_html( $item['plan_title'] ); ?></h4>
 								<?php } ?>
 								<h4 class="price"
 									data-by_month="<?php echo esc_attr( $item['plan_price_by_month'] ); ?>"
 									data-by_yearly="<?php echo esc_attr( $item['plan_price_by_yearly'] ); ?>">
-									<span>$<?php echo esc_attr( $item['plan_price_by_month'] ); ?> &nbsp  </span>/ Month
+									<span>$<?php echo esc_attr( $item['plan_price_by_month'] ); ?> </span>/ Month
 								</h4>
 								<?php if ( ! empty( $item['plans_description'] ) ) { ?>
 									<ul class="plans-description">
