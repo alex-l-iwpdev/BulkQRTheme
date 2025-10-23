@@ -269,5 +269,32 @@ class RegisterCarbonFields {
 				);
 			} );
 
+		// FAQ Block.
+		Block::make( __( 'FAQ', 'bulk-qr-theme' ) )
+			->add_fields(
+				[
+					Field::make( 'text', 'title', __( 'Title', 'bulk-qr-theme' ) ),
+					Field::make( 'complex', 'faq_items', __( 'FAQ Item', 'bulk-qr-theme' ) )
+						->add_fields(
+							[
+								Field::make( 'text', 'question', __( 'Question', 'bulk-qr-theme' ) ),
+								Field::make( 'textarea', 'answer', __( 'Answer', 'bulk-qr-theme' ) ),
+							]
+						),
+				]
+			)
+			->set_category( 'bulk-qr-theme', 'BQS Blocks', 'admin-appearance' )
+			->set_render_callback( function ( $fields, $attributes, $inner_blocks ) {
+				get_template_part(
+					'template-parts/blocks/faq',
+					'block',
+					[
+						'attributes'   => $attributes,
+						'inner_blocks' => $inner_blocks,
+						'fields'       => $fields,
+					]
+				);
+			} );
+
 	}
 }
