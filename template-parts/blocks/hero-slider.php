@@ -22,6 +22,20 @@ $fields = $args['fields'];
 									<?php if ( ! empty( $slide['slide_description'] ) ) { ?>
 										<p><?php echo esc_html( $slide['slide_description'] ); ?></p>
 									<?php } ?>
+									<?php if ( ! empty( $fields['primary_cta_text'] ) ) { ?>
+										<a
+												href="<?php echo esc_url( $fields['primary_cta_link'] ?? '#' ); ?>"
+												class="primary-cta">
+											<?php echo esc_html( $fields['primary_cta_text'] ); ?>
+										</a>
+									<?php } ?>
+									<?php if ( ! empty( $fields['secondary_cta_text'] ) ) { ?>
+										<a
+												href="<?php echo esc_url( $fields['secondary_cta_link'] ?? '#' ); ?>"
+												class="secondary-cta">
+											<?php echo esc_html( $fields['secondary_cta_text'] ); ?>
+										</a>
+									<?php } ?>
 								</div>
 								<?php
 								if ( ! empty( $slide['slide_image'] ) ) {

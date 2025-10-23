@@ -110,6 +110,14 @@ class RegisterCarbonFields {
 							[
 								Field::make( 'text', 'slide_title', __( 'Slide Title', 'bulk-qr-theme' ) ),
 								Field::make( 'text', 'slide_description', __( 'Slide Description', 'bulk-qr-theme' ) ),
+								Field::make( 'text', 'primary_cta_text', __( 'Primary CTA Text', 'bulk-qr-theme' ) )
+									->set_width( 50 ),
+								Field::make( 'text', 'primary_cta_link', __( 'Primary CTA Link', 'bulk-qr-theme' ) )
+									->set_width( 50 ),
+								Field::make( 'text', 'secondary_cta_text', __( 'Primary CTA Text', 'bulk-qr-theme' ) )
+									->set_width( 50 ),
+								Field::make( 'text', 'secondary_cta_link', __( 'Primary CTA Link', 'bulk-qr-theme' ) )
+									->set_width( 50 ),
 								Field::make( 'image', 'slide_image', __( 'Slide', 'bulk-qr-theme' ) ),
 							]
 						),
