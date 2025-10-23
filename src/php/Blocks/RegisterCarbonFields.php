@@ -225,5 +225,49 @@ class RegisterCarbonFields {
 				);
 			} );
 
+		//Plan block
+		Block::make( __( 'Plan Block', 'bulk-qr-theme' ) )
+			->add_fields(
+				[
+					Field::make( 'text', 'block_title', __( 'Block Title', 'bulk-qr-theme' ) ),
+					Field::make( 'text', 'block_description', __( 'Block Description', 'bulk-qr-theme' ) ),
+					Field::make( 'complex', 'plans_items', __( 'Plans', 'bulk-qr-theme' ) )
+						->add_fields(
+							[
+								Field::make( 'text', 'plan_title', __( 'Plan Title', 'bulk-qr-theme' ) ),
+								Field::make( 'text', 'plan_price_by_month', __( 'Plan Price by Month', 'bulk-qr-theme' ) )
+									->set_width( 50 ),
+								Field::make( 'text', 'plan_price_by_yearly', __( 'Plan Price by Yearly', 'bulk-qr-theme' ) )
+									->set_width( 50 ),
+
+								Field::make( 'complex', 'plans_description', __( 'Plans description', 'bulk-qr-theme' ) )
+									->add_fields(
+										[
+											Field::make( 'text', 'description', __( 'Plan Title', 'bulk-qr-theme' ) ),
+										]
+									),
+								Field::make( 'text', 'cta_button_text', __( 'CTA Button Text', 'bulk-qr-theme' ) )
+									->set_width( 50 ),
+								Field::make( 'text', 'cta_button_link', __( 'CTA Button Link', 'bulk-qr-theme' ) )
+									->set_width( 50 ),
+							]
+						),
+
+
+				]
+			)
+			->set_category( 'bulk-qr-theme', 'BQS Blocks', 'admin-appearance' )
+			->set_render_callback( function ( $fields, $attributes, $inner_blocks ) {
+				get_template_part(
+					'template-parts/blocks/plan',
+					'block',
+					[
+						'attributes'   => $attributes,
+						'inner_blocks' => $inner_blocks,
+						'fields'       => $fields,
+					]
+				);
+			} );
+
 	}
 }
