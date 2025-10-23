@@ -50,7 +50,11 @@ class RegisterCarbonFields {
 		Carbon_Fields::boot();
 	}
 
-
+	/**
+	 * Registers custom Gutenberg blocks using Carbon Fields.
+	 *
+	 * @return void
+	 */
 	public function register_carbon_fields_gutenberg_blocks(): void {
 		//Steps Block.
 		Block::make( __( 'Steps Block', 'bulk-qr-theme' ) )
@@ -190,5 +194,36 @@ class RegisterCarbonFields {
 					]
 				);
 			} );
+		// Reviews Block
+		Block::make( __( 'Reviews Block', 'bulk-qr-theme' ) )
+			->add_fields(
+				[
+					Field::make( 'text', 'block_title', __( 'Block Title', 'bulk-qr-theme' ) ),
+					Field::make( 'complex', 'reviews', __( 'Reviews', 'bulk-qr-theme' ) )
+						->add_fields(
+							[
+								Field::make( 'image', 'image', __( 'Image steps', 'bulk-qr-theme' ) ),
+								Field::make( 'text', 'review_title', __( 'Review Title', 'bulk-qr-theme' ) ),
+								Field::make( 'text', 'reviewer_position', __( 'Review Position', 'bulk-qr-theme' ) ),
+								Field::make( 'rich_text', 'reviewer_description', __( 'Review Description', 'bulk-qr-theme' ) ),
+							]
+						),
+					Field::make( 'text', 'cta_button_text', __( 'CTA Button Text', 'bulk-qr-theme' ) )->set_width( 50 ),
+					Field::make( 'text', 'cta_button_link', __( 'CTA Button Link', 'bulk-qr-theme' ) )->set_width( 50 ),
+				]
+			)
+			->set_category( 'bulk-qr-theme', 'BQS Blocks', 'admin-appearance' )
+			->set_render_callback( function ( $fields, $attributes, $inner_blocks ) {
+				get_template_part(
+					'template-parts/blocks/reviews',
+					'block',
+					[
+						'attributes'   => $attributes,
+						'inner_blocks' => $inner_blocks,
+						'fields'       => $fields,
+					]
+				);
+			} );
+
 	}
 }
