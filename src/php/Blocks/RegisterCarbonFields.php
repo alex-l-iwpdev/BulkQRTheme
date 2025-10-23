@@ -64,6 +64,8 @@ class RegisterCarbonFields {
 								Field::make( 'text', 'step_title', __( 'Step Title', 'bulk-qr-theme' ) ),
 							]
 						),
+					Field::make( 'text', 'cta_button_text', __( 'CTA Button Text', 'bulk-qr-theme' ) )->set_width( 50 ),
+					Field::make( 'text', 'cta_button_link', __( 'CTA Button Link', 'bulk-qr-theme' ) )->set_width( 50 ),
 				]
 			)
 			->set_category( 'bulk-qr-theme', 'BQS Blocks', 'admin-appearance' )

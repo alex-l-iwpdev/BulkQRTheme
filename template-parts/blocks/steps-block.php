@@ -34,6 +34,15 @@ $fields = $args['fields'];
 					</div>
 				<?php } ?>
 			</div>
+			<div class="row">
+				<div class="col-12">
+					<?php if ( ! empty( $fields['cta_button_text'] ) ) { ?>
+						<a href="<?php echo esc_url( $fields['cta_button_link'] ?? '#' ); ?>" class="primary-cta">
+							<?php echo esc_html( $fields['cta_button_text'] ); ?>
+						</a>
+					<?php } ?>
+				</div>
+			</div>
 		<?php } ?>
 	</div>
 </section>
