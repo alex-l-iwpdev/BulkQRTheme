@@ -74,6 +74,7 @@ class Main {
 				'ajaxUrl'         => admin_url( 'admin-ajax.php' ),
 				'subscribeAction' => SubscribeMailNews::BQS_SUBSCRIBE_ACTION_NAME,
 				'subscribeNonce'  => wp_create_nonce( SubscribeMailNews::BQS_SUBSCRIBE_ACTION_NAME ),
+				'currencyApiKey'  => 'cur_live_y3ZUGNvX8ayKgRro1FyZAtW0r8wxWDhlEBRxQqq7',
 			]
 		);
 	}

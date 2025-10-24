@@ -30,7 +30,7 @@ $fields = $args['fields'];
 					</div>
 					<div class="select">
 						<select name="plans_currency" id="plans-currency">
-							<option value="USD">USD</option>
+							<option value="USD" selected>USD</option>
 							<option value="UAH">UAH</option>
 							<option value="PLN">PLN</option>
 							<option value="EUR">EUR</option>
@@ -61,7 +61,11 @@ $fields = $args['fields'];
 									</ul>
 								<?php } ?>
 								<?php if ( ! empty( $item['cta_button_text'] ) ) { ?>
-									<a class="btn" href="<?php echo esc_url( $item['cta_button_link'] ); ?>">
+									<a
+											class="btn"
+											data-form_m="<?php echo esc_url( $item['cta_form_link_m'] ?? '' ); ?>"
+											data-form_y="<?php echo esc_url( $item['cta_form_link_y'] ?? '' ); ?>"
+											href="<?php echo esc_url( $item['cta_button_link'] ?: $item['cta_form_link_m'] ); ?>">
 										<?php echo esc_html( $item['cta_button_text'] ); ?>
 									</a>
 								<?php } ?>
