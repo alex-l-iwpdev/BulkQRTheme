@@ -14,6 +14,7 @@ get_header();
 					<div class="description">
 						<h2>Thank You for Your Payment!</h2>
 						<p>Your order has been successfully processed.</p>
+						<p>Access to your account is sent to you by <b>Email</b></p>
 						<p>If you have any questions, feel free to <br>contact our support team at <a href="#">support@qr-bulk.com</a>
 						</p><a class="btn bi bi-house-door-fill" href="/">Return to Home Page</a>
 					</div>
