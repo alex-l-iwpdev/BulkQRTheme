@@ -37,7 +37,7 @@ $fields = $args['fields'];
 			<div class="row">
 				<div class="col-12">
 					<?php if ( ! empty( $fields['cta_button_text'] ) ) { ?>
-						<a href="<?php echo esc_url( $fields['cta_button_link'] ?? '#' ); ?>" class="primary-cta">
+						<a href="<?php echo esc_url( $fields['cta_button_link'] ?? '#' ); ?>" class="btn primary-cta">
 							<?php echo esc_html( $fields['cta_button_text'] ); ?>
 						</a>
 					<?php } ?>

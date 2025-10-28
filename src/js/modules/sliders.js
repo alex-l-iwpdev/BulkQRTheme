@@ -8,6 +8,13 @@ jQuery( document ).ready( function( $ ) {
 			slidesToShow: 1,
 			prevArrow: iconArrowPrev,
 			nextArrow: iconArrowNext,
+			responsive: [
+				{
+					breakpoint: 1024,
+					settings: {
+						arrows: false
+					}
+				}]
 		} );
 	}
 	if ( reviewsSlider.length ) {

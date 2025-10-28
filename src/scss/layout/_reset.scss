@@ -33,6 +33,16 @@ a{
 	text-decoration: none;
 	font-weight: 700;
 }
+header{
+	& + section{
+		&:not(.banner){
+			padding-top: calc(80px + 64px);
+		}
+		&:last-of-type{
+			padding-bottom: 64px;
+		}
+	}
+}
 body {
 	line-height: 1.2;
 	background: #0A0A25;
@@ -42,12 +52,33 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-	font-family: "Roboto", sans-serif; 
-
+	font-family: "Roboto", sans-serif;
+	&.admin-bar{ 
+		&.home{
+			header{
+				& + section{
+					padding-top: 134px;
+				} 
+			}
+		}
+		header{
+			top: 32px;	
+		}
+	} 
+	&.home{
+		header{
+			& + section{
+				padding-top: 80px;
+			} 
+		}
+	}
 }
 section{
 	&:not(.banner){
 		padding-top: 64px;
+	}
+	& + footer{
+		margin-top: 64px;
 	}
 }
 ol, ul {
@@ -110,14 +141,4 @@ a.btn{
 		background: #fff;
 		color: #2375E5 !important;
 	}	
-}
-header{
-	& + section{
-		&:not(.banner){
-			padding-top: calc(80px + 64px);
-		}
-		&:last-of-type{
-			padding-bottom: 64px;
-		}
-	}
 }

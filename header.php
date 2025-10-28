@@ -7,7 +7,7 @@
 
 ?>
 <!DOCTYPE html>
-<html <?php language_attributes(); ?>>
+<html style="margin-top: 0px !important;" <?php language_attributes(); ?>>
 <head>
 	<meta charset="UTF-8">
 	<meta

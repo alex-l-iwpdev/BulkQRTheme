@@ -43,7 +43,10 @@
     top: calc(100% + 10px) !important;
     position: absolute;
     z-index: 1;
-
+    ul{
+      padding-left: 0 !important;
+      margin: 0 !important;
+    }
     li {
       font-size: 16px;
       color: #fff;
@@ -54,7 +57,8 @@
       gap: 8px;
       align-items: center;
       padding: 10px 16px !important;
-
+      justify-content: center;
+      margin: 0;
       &.highlighted {
         background: var(--blueTransition);
         color: #fff;
@@ -89,7 +93,7 @@
   }
 
   .plans-item {
-    width: calc((100% - 72px) / 4);
+    width: calc((100% - 48px) / 3);
     background: var(--blueTransition);
     padding: 24px;
     border-radius: 12px;
@@ -97,7 +101,6 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-content: flex-start;
 
     &:not(:has(p)) {
       ul {
@@ -109,7 +112,7 @@
       display: inline-flex;
       margin-bottom: 0;
       font-size: 20px;
-
+      align-self: baseline;
       &.price {
         margin-left: auto;
         text-transform: capitalize;
@@ -137,7 +140,8 @@
       flex-direction: column;
       width: 100%;
       margin-top: 24px;
-
+      margin-bottom: 24px;
+      height: calc(100% - 148px);
       li {
         padding: 10px 0;
         border-bottom: 2px solid rgba(255, 255, 255, 0.2);
@@ -145,7 +149,7 @@
     }
 
     .btn {
-      margin-top: 24px;
+      margin-top: auto;
       height: 48px;
       max-width: 100%;
       background-color: transparent;
@@ -172,7 +176,9 @@
     }
   }
 }
-
+.primary-cta{
+  margin: 24px auto 0;
+}
 .filer-plans {
   display: flex;
   flex-direction: row;

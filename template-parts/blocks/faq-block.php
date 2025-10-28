@@ -22,7 +22,7 @@ $fields = $args['fields'];
 							<div class="faq-item">
 								<h3>
 									<?php echo esc_html( $faq_item['question'] ); ?>
-									<i class="icon-plus"></i>
+									<i class="bi bi-plus"></i>
 								</h3>
 								<div class="faq-description">
 									<p><?php echo esc_html( $faq_item['answer'] ); ?></p>

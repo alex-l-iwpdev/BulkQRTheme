@@ -15,6 +15,7 @@ use Iwpdev\BulkQrTheme\Nav\NavMenu;
 				<?php the_custom_logo(); ?>
 			</div>
 			<div class="col">
+				<div class="burger-menu"><span></span><span></span><span></span></div>
 				<?php
 				if ( has_nav_menu( 'header_menu' ) ) {
 					wp_nav_menu(

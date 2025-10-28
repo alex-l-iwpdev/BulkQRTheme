@@ -8,6 +8,7 @@ import 'slick-carousel/slick/slick.js';
 import sliders from './modules/sliders.js';
 import tabs from './modules/tab.js';
 import form from './modules/form.js';
+import faq from './modules/faq.js';
 /**
  * Blocks
  */
