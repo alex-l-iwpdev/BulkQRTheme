@@ -46,3 +46,20 @@
     }
     
 }
+section{
+    .col-lg-6{
+        @media screen and (max-width: 991px){
+            &:first-child{
+                order: 1;
+            }
+        }
+        h2{
+            text-align: center;
+        }
+    }
+    &.section-text{
+        @media screen and (max-width: 991px){
+            text-align: center;
+        }
+    }
+}
