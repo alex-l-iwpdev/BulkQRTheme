@@ -19,7 +19,7 @@ $fields = $args['fields'];
 		<?php if ( ! empty( $fields['block_steps'] ) ) { ?>
 			<div class="row">
 				<?php foreach ( $fields['block_steps'] as $step ) { ?>
-					<div class="col-lg-4">
+					<div class="col-md-4">
 						<?php
 						if ( ! empty( $step['image'] ) ) {
 							$image = wp_get_attachment_image_url( $step['image'], 'full' );

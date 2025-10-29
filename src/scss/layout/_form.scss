@@ -1,7 +1,6 @@
 .error-message {
     font-size: 12px;
-    color: #f70202;
-    text-shadow: 0.5px 0.5px 0px #000;
+    color: #a10101;
     position: absolute;
     bottom: -2px;
     transform: translateY(100%);
@@ -422,6 +421,23 @@ form{
     padding: 24px;
 }
 .bulk-form{
+    @media screen and (max-width: 991px) {
+		margin-bottom: 24px;	
+	}
+    @media screen and (max-width: 767px) {
+        .file-wrap,
+		.btn{
+			max-width: 100% !important;
+            width: 100%;
+		}
+        .file{
+            width: 100%;
+            label{
+                max-width: 100% !important;
+                width: 100%;
+            }
+        }
+	}
     h2{
         margin:0 0 10px;
     }
@@ -444,6 +460,13 @@ form{
         align-items: center;
         row-gap: 16px;
         column-gap: 24px;
+        @media screen and (max-width: 1199px) {
+            column-gap: 18px;
+            margin-bottom: 9px;
+        }
+        @media screen and (max-width: 991px) {
+            margin-bottom: 24px;
+        }
         .input-wrap{
             display: flex;
             flex-direction: row;
@@ -451,6 +474,15 @@ form{
             align-items: center;
             gap: 6px;
             margin-bottom:0;
+            @media screen and (max-width: 767px) {
+                width: 100%;
+                p{
+                    width: 115px;
+                }
+                .input{
+                    width: calc(100% - 121px) !important;
+                }
+            }
             .input{
                 margin-bottom: 0;
                 width: 195px;
@@ -518,6 +550,12 @@ form{
             margin-right: 24px;
             justify-content: center;
             cursor: pointer;
+            @media screen and (max-width: 1199px) {
+				margin-right: 5px;
+			}
+            @media screen and (max-width: 767px) {
+                margin-right: 3px;
+            }
             &:before{
                 content: '';
                 position: relative;
@@ -541,7 +579,15 @@ form{
         flex-wrap: wrap;
         align-items: center;
         gap: 6px;
-        
+        @media screen and (max-width: 767px) {
+			width: 100%;
+            p{
+                width: 115px;
+            }
+            .selectric-wrapper{
+                width: calc(100% - 121px) !important;
+            }
+		}
         .selectric{
             border: 2px solid #fff;
             .button,
@@ -564,6 +610,9 @@ form{
         width: 100%;
         height: auto;
     }
+    @media screen and (max-width: 991px) {
+		margin-top: 24px;	
+	}
 }
 .wpforms-container{
     max-width: 100%;

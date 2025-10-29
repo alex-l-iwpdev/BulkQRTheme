@@ -38,3 +38,28 @@
     --blueTransition: rgba(35, 117, 229, 0.5);
     --blue: #2375E5;
 }
+.error404{
+    section{
+        .btn{
+            margin: 24px 0 0;
+        }
+    }
+    
+}
+section{
+    .col-lg-6{
+        @media screen and (max-width: 991px){
+            &:first-child{
+                order: 1;
+            }
+        }
+        h2{
+            text-align: center;
+        }
+    }
+    &.section-text{
+        @media screen and (max-width: 991px){
+            text-align: center;
+        }
+    }
+}
