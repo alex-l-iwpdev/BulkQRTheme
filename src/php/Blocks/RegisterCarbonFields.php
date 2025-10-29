@@ -10,6 +10,7 @@ namespace Iwpdev\BulkQrTheme\Blocks;
 
 use Carbon_Fields\Block;
 use Carbon_Fields\Carbon_Fields;
+use Carbon_Fields\Container;
 use Carbon_Fields\Field;
 
 class RegisterCarbonFields {
@@ -36,6 +37,8 @@ class RegisterCarbonFields {
 	private function init(): void {
 		add_action( 'after_setup_theme', [ $this, 'boot_carbon_fields' ] );
 		add_action( 'carbon_fields_register_fields', [ $this, 'register_carbon_fields_gutenberg_blocks' ] );
+
+		add_action( 'carbon_fields_register_fields', [ $this, 'register_theme_options_fields' ] );
 	}
 
 	/**
@@ -256,8 +259,6 @@ class RegisterCarbonFields {
 									->set_width( 50 ),
 							]
 						),
-
-
 				]
 			)
 			->set_category( 'bulk-qr-theme', 'BQS Blocks', 'admin-appearance' )
@@ -300,5 +301,45 @@ class RegisterCarbonFields {
 				);
 			} );
 
+	}
+
+	/**
+	 * Theme options.
+	 *
+	 * @return void
+	 */
+	public function register_theme_options_fields(): void {
+		Container::make( 'theme_options', __( 'Theme Options', 'bulk-qr-theme' ) )
+			->add_fields(
+				[
+					Field::make( 'text', 'block_title', __( 'Block Title', 'bulk-qr-theme' ) ),
+					Field::make( 'text', 'block_description', __( 'Block Description', 'bulk-qr-theme' ) ),
+					Field::make( 'complex', 'plans_items', __( 'Plans', 'bulk-qr-theme' ) )
+						->add_fields(
+							[
+								Field::make( 'text', 'plan_title', __( 'Plan Title', 'bulk-qr-theme' ) ),
+								Field::make( 'text', 'plan_price_by_month', __( 'Plan Price by Month', 'bulk-qr-theme' ) )
+									->set_width( 50 ),
+								Field::make( 'text', 'plan_price_by_yearly', __( 'Plan Price by Yearly', 'bulk-qr-theme' ) )
+									->set_width( 50 ),
+
+								Field::make( 'complex', 'plans_description', __( 'Plans description', 'bulk-qr-theme' ) )
+									->add_fields(
+										[
+											Field::make( 'text', 'description', __( 'Plan Title', 'bulk-qr-theme' ) ),
+										]
+									),
+								Field::make( 'text', 'cta_button_text', __( 'CTA Button Text', 'bulk-qr-theme' ) )
+									->set_width( 50 ),
+								Field::make( 'text', 'cta_button_link', __( 'CTA Button Link', 'bulk-qr-theme' ) )
+									->set_width( 50 ),
+								Field::make( 'text', 'cta_form_link_m', __( 'CTA From link Month', 'bulk-qr-theme' ) )
+									->set_width( 50 ),
+								Field::make( 'text', 'cta_form_link_y', __( 'CTA From link Year', 'bulk-qr-theme' ) )
+									->set_width( 50 ),
+							]
+						),
+				]
+			);
 	}
 }
