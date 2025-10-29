@@ -65,6 +65,9 @@
       margin-left: auto;
       max-width: 55%;
       opacity: 0.8;
+      height: 100%;
+      object-fit: cover;
+      height: 515px;
       @media screen and (max-width: 1399px){
         height: 500px;
         max-width: none;
@@ -105,6 +108,14 @@
       @media screen and (max-width: 767px){
         max-width: 540px;
       }
+      @media screen and (max-width: 575px){
+          h2{
+            text-align: center;
+          }
+          p{
+            text-align: center;
+          }
+      }
       h2{
         max-width: 50%;
         text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.8);
@@ -129,6 +140,10 @@
       .btn{
         margin: 24px 0 0;
         height: 48px;
+        @media screen and (max-width: 575px){
+            margin-left: auto;
+            margin-right: auto;
+        }
       }
   }
 }

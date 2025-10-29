@@ -6,10 +6,33 @@ header{
     height: 80px;
     padding: 10px 0;
     z-index: 99;
+    .col{
+        & > .burger-menu{
+            margin-left: auto;
+        }
+    }
     .logo{
         display: flex;
         flex-direction: column;
         
+    }
+    .btn.bi{
+        position: relative;
+        &:hover{
+            &::before{
+                color: var(--blue);
+            }
+        }
+        &:before{
+            position: absolute;
+            top: 50%;
+            left: 24px;
+            transform: translateY(-50%);
+            transition: all 0.3s ease;
+        }
+        a{
+            padding-left: 50px;
+        }
     }
     .burger-menu{
         display: none;
@@ -26,8 +49,21 @@ header{
                 height: 4px;
                 background: #fff;
             }
-            
+            &.close-menu{
+                span{
+                    &:nth-child(1){
+                        transform: rotate(45deg) translate(9px, 9px);
+                    } 
+                    &:nth-child(2){
+                        opacity: 0;
+                    }
+                    &:nth-child(3){
+                        transform: rotate(-45deg) translate(9px, -9px);
+                    }
+                }
+            }
         }
+
     }
     .menu{
         display: flex;
@@ -36,13 +72,56 @@ header{
         align-items: center;
         justify-content: end;
         gap: 24px;
+        display: none;
         .btn{
             margin-left: 0;
             margin-right: 0;
+        }
+    }
+    .mobile-menu{
+        position: fixed;
+        top: 0px;
+        right: 0;
+        max-width: 320px;
+        width: 100%;
+        height: 100lvh;
+        background: var(--blue);
+        padding: 30.5px 24px;
+        transform: translateX(100%);
+        transition: all 0.3s ease;
+        &.open-menu{
+            transform: translateX(0);
+        }
+        .menu{
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            gap: 16px;
+            padding: 24px 0;
+            display: flex;
+            li{
+                &.btn{
+                    &:before{
+                        display: none;
+                    }
+                    a{
+                        height: auto;
+                        padding: 0
+                    }
+                }
+            }
         }
     }
     & + section{
         padding-top: 112px;
     }
     
+}
+.admin-bar{
+    header{
+        .mobile-menu{
+            top: 32px;
+            height: calc(100lvh - 32px);
+        }
+    }
 }
