@@ -339,6 +339,7 @@ class RegisterCarbonFields {
 									->set_width( 50 ),
 							]
 						),
+					Field::make( 'text', 'form_shortcode', __( 'Support from shortcode', 'bulk-qr-theme' ) ),
 				]
 			);
 	}
