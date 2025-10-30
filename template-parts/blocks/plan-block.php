@@ -7,7 +7,7 @@
 
 $fields = $args['fields'];
 ?>
-<section class="plans">
+<section class="plans" id="plan-block">
 	<div class="container">
 		<div class="row">
 			<div class="col">
