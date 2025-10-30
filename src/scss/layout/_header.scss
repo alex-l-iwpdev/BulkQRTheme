@@ -123,11 +123,14 @@ header{
     }
     
 }
-.admin-bar{
+body.admin-bar{
     header{
         .mobile-menu{
             top: 32px;
             height: calc(100lvh - 32px);
+        }
+        @media screen and (max-width: 782px){
+            top: 46px;
         }
     }
 }
