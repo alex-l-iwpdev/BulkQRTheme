@@ -1,6 +1,20 @@
 .faq-section{
     h2{
         margin: 0 24px 0 0;
+        @media screen and (max-width: 991px){
+            margin: 0 0 24px 0;
+            text-align: center;
+        }
+    }
+    .col-auto{
+        max-width: 325px;
+        @media screen and (max-width: 1199px){
+            width: 265px;
+        }
+        @media screen and (max-width: 991px){
+            width: 100%;
+            max-width: 100%;
+        }
     }
     &:first-of-type{
        .row{
@@ -25,6 +39,9 @@
     .faq-item{
         border-bottom: 2px solid #fff;
         padding: 24px;
+        @media screen and (max-width: 991px){
+            padding: 12px;
+        }
         &:first-of-type{
             padding-top: 0;
         }
@@ -37,6 +54,11 @@
             align-items: center;
             cursor: pointer;
             transition: all 0.3s ease;
+            position: relative;
+            @media screen and (max-width: 575px){
+                font-size: 20px;
+                padding-right: 40px;
+            }
             &:hover{
                 color: #2375E5;
             }
@@ -44,6 +66,13 @@
         i{
             &:before{
                 font-size: 48px;
+                @media screen and (max-width: 575px){
+                    font-size: 24px;
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    right: 0px;
+                }
             }
         }
         .faq-description{
@@ -53,6 +82,13 @@
                 font-size: 20px;
                 color: #a9a9a9; 
             }
+            @media screen and (max-width: 575px){
+                margin-top: 5px;
+                p{
+                    font-size: 16px;
+                }
+            }
+            
         }
 
     }

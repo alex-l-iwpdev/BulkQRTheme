@@ -1,6 +1,15 @@
 footer{
     padding: 24px 0;
     margin-top: auto;
+    @media screen and (max-width: 575px){
+        .col,
+        .col-auto{
+            flex: initial;
+            text-align: center;
+            margin-top: 14px;
+            width: 100%;
+        }
+    }
     .menu{
         display: flex;
         flex-direction: row;
@@ -8,12 +17,17 @@ footer{
         align-items: center;
         justify-content: flex-end;
         gap: 24px;
-        
+        @media screen and (max-width: 575px){
+            justify-content: center;
+        }
         li{
             a{
                 font-size: 20px;
                 color: #fff;
                 text-decoration: none;
+                @media screen and (max-width: 767px){
+                    font-size: 16px;
+                }
                 &:hover{
                     color: #2375E5;
                 }
@@ -38,6 +52,12 @@ footer{
         justify-content: flex-end;
         gap: 16px;
         margin-top: 10px;
+        @media screen and (max-width: 767px){
+            margin-top: 5px;
+        }
+        @media screen and (max-width: 575px){
+            justify-content: center;
+        }
         a{
             font-size: 14px;
             color: #fff;

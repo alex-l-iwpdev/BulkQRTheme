@@ -7,10 +7,25 @@
     gap: 64px;
     position: relative;
     padding: 24px;
+    @media screen and (max-width: 991px) {
+        gap: 24px;
+    }
+    @media screen and (max-width: 767px){
+        flex-direction: column; 
+    }
     .subscribe-desc{
         display: flex;
         flex-direction: column;
         width: calc(100% - 328px);
+        @media screen and (max-width: 991px) {
+            width: calc(100% - 174px);
+            p{
+                margin-bottom: 10px;
+            }
+        }
+        @media screen and (max-width: 767px){
+            width: 100%;    
+        }
     }
     .subscribe-form{
         display: flex;
@@ -22,6 +37,12 @@
         .input{
             margin-bottom: 0;
             width: calc(100% - 204px); 
+            @media screen and (max-width: 991px){
+                width: calc(100% - 179px);
+            }
+            @media screen and (max-width: 479px){
+                width: 100%;
+            }
             label{
                 background: #0a0a25;
             }
@@ -29,14 +50,36 @@
         .btn{
             width: 180px; 
             font-size: 18px; 
+            @media screen and (max-width: 991px){
+                font-size: 16px;
+                width: 155px;
+            }
+            @media screen and (max-width: 479px){
+                width: 100%;
+            }
         }
     }
     h2{
         font-size: 60px;
         margin-bottom: 10px;
+        @media screen and (max-width: 991px) {
+            font-size: 34px;
+        }
+        @media screen and (max-width: 767px){
+            text-align: center;
+        }
     }
     p{
-
+        @media screen and (max-width: 767px){
+            text-align: center;
+        }
+    }
+    img{
+        @media screen and (max-width: 991px) {
+            width: 150px;
+            margin-left: auto;
+            margin-right: auto;
+        }
     }
     i{
         position: absolute;

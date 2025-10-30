@@ -81,16 +81,21 @@
     margin: 0 -12px 64px;
     .slick-slide{
       margin: 0 12px;
+      height: inherit;
+      div{
+        height: 100%;
+      }
     }
     .slick-track {
       display: flex;
       flex-direction: row;
       flex-wrap: nowrap;
     }
-
+    
     .plans-item {
-      
+      display: flex !important;
       height: auto;
+      
     }
   }
 
@@ -227,6 +232,9 @@
       border: 2px solid #174085;
       font-weight: 700;
       cursor: pointer;
+      @media screen and (max-width: 575px) {
+        width: 100px;
+      }
     }
 
     input {
