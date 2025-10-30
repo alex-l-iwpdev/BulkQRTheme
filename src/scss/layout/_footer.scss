@@ -8,6 +8,7 @@ footer{
         align-items: center;
         justify-content: flex-end;
         gap: 24px;
+        
         li{
             a{
                 font-size: 20px;
@@ -27,6 +28,7 @@ footer{
     .copyright{
         font-size: 14px;
         color: #fff;
+        margin-top: 10px;
     }
     .privacy-menu{
         display: flex;
@@ -35,6 +37,7 @@ footer{
         align-items: center;
         justify-content: flex-end;
         gap: 16px;
+        margin-top: 10px;
         a{
             font-size: 14px;
             color: #fff;

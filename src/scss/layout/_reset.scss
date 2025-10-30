@@ -116,13 +116,19 @@ li{
 			margin-right: auto;
 			transition: all 0.3s ease;
 			background: #2375E5;
-			@media screen and (min-width: 1025){
-				&:hover{
+			
+				
+		}
+		@media screen and (min-width: 1025px){
+			&:hover{
+				&:before{
+					color: var(--blue) ;
+				}
+				a{
 					background: #fff;
-					color: #2375E5 !important;
+					color: var(--blue) !important;
 				}
 			}
-				
 		}
 	}
 }
@@ -144,10 +150,10 @@ a.btn{
 	margin-right: auto;
 	transition: all 0.3s ease;
 	background: #2375E5;
-	@media screen and (min-width: 1025){
+	@media screen and (min-width: 1025px){
 		&:hover{
 			background: #fff;
-			color: #2375E5 !important;
-		}	
+			color: #2375E5  !important;
+		} 
 	}
 }

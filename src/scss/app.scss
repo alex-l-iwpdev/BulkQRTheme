@@ -48,14 +48,21 @@
 }
 section{
     .col-lg-6{
+        .primary-cta{
+            margin-left: 0;
+        }
         @media screen and (max-width: 991px){
             &:first-child{
                 order: 1;
             }
+            h2{
+                text-align: center;
+            }
+            .primary-cta{
+                margin-left: auto;
+            }
         }
-        h2{
-            text-align: center;
-        }
+        
     }
     &.section-text{
         @media screen and (max-width: 991px){

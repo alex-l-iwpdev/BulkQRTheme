@@ -19,8 +19,11 @@ header{
     .btn.bi{
         position: relative;
         &:hover{
-            &::before{
+            &:before{
                 color: var(--blue);
+                a{
+                    background: #fff;
+                }  
             }
         }
         &:before{
