@@ -6,7 +6,7 @@
  */
 
 get_header();
-if ( ! is_home() && ! is_front_page() || ! is_page( 'faq-frequently-asked-questions' ) ) {
+if ( ! is_home() && ! is_front_page() ) {
 	?>
 	<section class="page-content">
 		<div class="container">
