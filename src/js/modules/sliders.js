@@ -1,7 +1,7 @@
 jQuery(document).ready(function ($) {
 	let reviewsSlider = $('.reviews-items'),
 		bannerSlider = $('.banner-slider'),
-		planSlider = $('.plans-items'),
+		planSlider = $('.home .plans-items'),
 		iconArrowPrev = '<i class="bi bi-chevron-left"></i>',
 		iconArrowNext = '<i class="bi bi-chevron-right"></i>';
 	if (bannerSlider.length) {
