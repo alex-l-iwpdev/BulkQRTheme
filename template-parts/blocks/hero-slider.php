@@ -17,7 +17,7 @@ $fields = $args['fields'];
 							<div class="item">
 								<div class="description">
 									<?php if ( ! empty( $slide['slide_title'] ) ) { ?>
-										<h2><?php echo esc_html( $slide['slide_title'] ); ?></h2>
+										<h1 class="banner-title"><?php echo esc_html( $slide['slide_title'] ); ?></h1>
 									<?php } ?>
 									<?php if ( ! empty( $slide['slide_description'] ) ) { ?>
 										<p><?php echo esc_html( $slide['slide_description'] ); ?></p>
