@@ -12,10 +12,15 @@ get_header();
 			<div class="row align-items-center">
 				<div class="col">
 					<div class="description">
-						<h2>Thank You for Your Payment!</h2>
-						<p>Your order has been successfully processed.</p>
-						<p>Access to your account is sent to you by <b>Email</b></p>
-						<p>If you have any questions, feel free to <br>contact our support team at <a href="#">support@qr-bulk.com</a>
+						<h1>Your order has been successfully processed.</h1>
+						<p>We’ve sent your account <b>details and login link</b> to your email — please check your inbox
+							or
+							spam folder.</p>
+						<p>You can now access <b>your dashboard</b> to start generating and downloading your bulk QR
+							codes
+							instantly.</p>
+						<p>If you have any questions, feel free to contact our support team at <a href="#">support@qr-bulk.com</a>
+							— we’re always here to help.
 						</p><a class="btn bi bi-house-door-fill" href="/">Return to Home Page</a>
 					</div>
 				</div>
