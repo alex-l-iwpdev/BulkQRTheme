@@ -17,6 +17,7 @@ $fields = $args['fields'];
 				<div class="col-lg-6">
 					<img
 							src="<?php echo esc_url( $image ); ?>"
+							loading="lazy"
 							alt="<?php echo esc_attr( get_the_title( $fields['image'] ) ); ?>">
 				</div>
 			<?php } ?>
@@ -34,6 +35,7 @@ $fields = $args['fields'];
 				<div class="col-lg-6">
 					<img
 							src="<?php echo esc_url( $image ); ?>"
+							loading="lazy"
 							alt="<?php echo esc_attr( get_the_title( $fields['image'] ) ); ?>">
 				</div>
 			<?php } ?>

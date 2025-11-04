@@ -27,6 +27,7 @@ get_header();
 				<div class="col-auto">
 					<img
 							src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/thank-you.svg' ); ?>"
+							loading="lazy"
 							alt="Thanks, Page image">
 				</div>
 			</div>

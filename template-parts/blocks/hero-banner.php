@@ -26,6 +26,7 @@ $fields = $args['fields'];
 					?>
 					<img
 							src="<?php echo esc_url( $image ); ?>"
+							loading="lazy"
 							alt="<?php echo esc_attr( get_the_title( $fields['banner_image'] ) ); ?>">
 				<?php } ?>
 			</div>

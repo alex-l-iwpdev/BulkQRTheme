@@ -29,6 +29,7 @@ $fields = $args['fields'];
 									?>
 									<img
 											class="reviews-image"
+											loading="lazy"
 											src="<?php echo esc_url( $image ); ?>"
 											alt="<?php echo esc_attr( $review['review_title'] ?? '' ) ?>">
 								<?php } ?>
