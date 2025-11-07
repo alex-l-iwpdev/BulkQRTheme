@@ -13,7 +13,7 @@ jobs:
     env:
       SERVER_HOST: ${{ secrets.SERVER_IP }}
       SERVER_USER: ${{ secrets.SERVER_USER }}
-      REMOTE_PATH: ${{ secrets.THEME_PATH }}
+      PROD_REMOTE_PATH: ${{ secrets.THEME_PATH }}
 
     steps:
       - name: Checkout repository (context only)
@@ -29,67 +29,34 @@ jobs:
           mkdir -p ~/.ssh
           ssh-keyscan -H "$SERVER_HOST" >> ~/.ssh/known_hosts
 
-      - name: SSH deploy to PRODUCTION (main branch)
-        if: github.ref_name == 'main'
+      - name: Setup PHP for build
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+          extensions: phar, zip, mbstring
+          tools: composer
+
+      - name: Install Composer dependencies (no-dev)
         run: |
-          ssh -o StrictHostKeyChecking=no -o LogLevel=ERROR "$SERVER_USER@$SERVER_HOST" << 'EOSSH'
-            set -euo pipefail
+          composer --version
+          composer install --no-dev --prefer-dist --no-progress --no-interaction
 
-            cd ${{secrets.THEME_PATH}}
-
-            if [ -d .git ]; then
-              # Ensure on main and hard-sync with origin/main (remove local changes and untracked files)
-              git fetch origin --prune
-              if git show-ref --verify --quiet refs/heads/main; then
-                git checkout -f main
-              else
-                git checkout -b main origin/main
-              fi
-              git reset --hard HEAD
-              git clean -fd
-              git reset --hard origin/main
-            else
-              echo "Error: Not a git repository at $REMOTE_PATH" >&2
-              exit 1
-            fi
-
-            # Composer install (no dev)
-            if command -v composer >/dev/null 2>&1; then
-              composer install --no-dev --prefer-dist --no-progress --no-interaction
-            elif [ -x "/usr/local/bin/composer" ]; then
-              /usr/local/bin/composer install --no-dev --prefer-dist --no-progress --no-interaction
-            elif [ -x "/usr/bin/composer" ]; then
-              /usr/bin/composer install --no-dev --prefer-dist --no-progress --no-interaction
-            else
-              echo "Composer not found on server PATH" >&2
-              exit 1
-            fi
-          EOSSH
-
-      - name: SSH deploy to STAGE (stage branch)
-        if: github.ref_name == 'stage'
+      - name: Deploy via rsync (main or stage)
         run: |
-          ssh -o StrictHostKeyChecking=no -o LogLevel=ERROR "$SERVER_USER@$SERVER_HOST" << 'EOSSH'
-            set -euo pipefail
+          BRANCH="${{ github.ref_name }}"
+          if [ "$BRANCH" = "main" ]; then
+            REMOTE_PATH="${PROD_REMOTE_PATH}"
+          else
+            REMOTE_PATH="/var/www/html/stage.bulkqr.org/public/wp-content/themes/BulkQRTheme"
+          fi
 
-            cd /var/www/html/stage.bulkqr.org/public/wp-content/themes/BulkQRTheme
+          # Ensure destination exists
+          ssh -o StrictHostKeyChecking=no -o LogLevel=ERROR "$SERVER_USER@$SERVER_HOST" "mkdir -p \"$REMOTE_PATH\""
 
-            git config --global --add safe.directory "$(pwd)"
-
-            if [ -d .git ]; then
-              echo "[STAGE] Updating git working copy on branch 'stage'"
-              git fetch origin --prune
-              if git show-ref --verify --quiet refs/heads/stage; then
-                git checkout stage
-              else
-                git checkout -b stage origin/stage
-              fi
-              git pull --rebase origin stage
-              git status -sb || true
-            else
-              echo "[STAGE] ERROR: Not a git repository at $(pwd)" >&2
-              exit 1
-            fi
-
-            echo "[STAGE] Done"
-          EOSSH
+          # Sync files from current workspace to remote path
+          RSYNC_SSH="ssh -o StrictHostKeyChecking=no -o LogLevel=ERROR"
+          rsync -az --delete \
+            --exclude ".git" \
+            --exclude ".github" \
+            --exclude ".gitignore" \
+            -e "$RSYNC_SSH" ./ "$SERVER_USER@$SERVER_HOST:$REMOTE_PATH/"
