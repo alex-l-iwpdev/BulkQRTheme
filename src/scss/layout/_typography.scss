@@ -120,6 +120,16 @@ ul:not([class]) {
     width: 100%;
   }
 }
+.thanks-page{
+  .description{
+    p{
+      margin-bottom: 16px;  
+    }
+    .btn{
+      margin: 0 !important;
+    }
+  }
+}
 .wp-block-heading{
   @media screen and (max-width: 1399px){
     max-width: 1140px;
