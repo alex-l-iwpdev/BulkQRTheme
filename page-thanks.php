@@ -7,7 +7,7 @@
 
 get_header();
 ?>
-	<section id="thanks-page">
+	<section class="thanks-page">
 		<div class="container">
 			<div class="row align-items-center">
 				<div class="col">
