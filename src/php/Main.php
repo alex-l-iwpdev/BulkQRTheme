@@ -20,7 +20,7 @@ use Iwpdev\BulkQrTheme\Subscribe\SubscribeMailNews;
  * the overall theme.
  */
 class Main {
-	const THEME_VERSION = '1.0';
+	const THEME_VERSION = '1.0.1';
 
 	/**
 	 * Constructor method.
