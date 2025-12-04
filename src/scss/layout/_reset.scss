@@ -84,6 +84,16 @@ section{
 		margin-top: 64px;
 	}
 }
+.wp-block-columns.container{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	.col-md-6{
+		padding-left: 12px;
+		padding-right: 12px;			
+	}
+}
+
 ol, ul {
 	list-style: none;
 }
