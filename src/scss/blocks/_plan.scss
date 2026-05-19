@@ -192,15 +192,28 @@
 .primary-cta{
   margin: 24px auto 0;
 }
+.lk-content{
+  .plans-items {
+    .plans-item{
+      width: calc((100% - 24px) / 2);
+    } 
+  }
+  .filer-plans {
+    width: calc(100% - 100px); 
+    margin-left: auto; 
+  }
+}
 .filer-plans {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
   margin-bottom: 24px;
+  
 
   .select {
     margin-left: auto;
+    width: 120px;
   }
 
   .plans-radio {
