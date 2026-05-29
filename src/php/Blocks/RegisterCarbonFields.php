@@ -237,7 +237,8 @@ class RegisterCarbonFields {
 					Field::make( 'complex', 'plans_items', __( 'Plans', 'bulk-qr-theme' ) )
 						->add_fields(
 							[
-								Field::make( 'text', 'plan_title', __( 'Plan Title', 'bulk-qr-theme' ) ),
+								Field::make( 'text', 'plan_title', __( 'Plan Title', 'bulk-qr-theme' ) )->set_width( 70 ),
+								Field::make( 'checkbox', 'plan_one_pay', __( 'Plan On Pay', 'bulk-qr-theme' ) )->set_width( 30 )->set_option_value( 'yes' ),
 								Field::make( 'text', 'plan_price_by_month', __( 'Plan Price by Month', 'bulk-qr-theme' ) )
 									->set_width( 50 ),
 								Field::make( 'text', 'plan_price_by_yearly', __( 'Plan Price by Yearly', 'bulk-qr-theme' ) )
@@ -317,7 +318,8 @@ class RegisterCarbonFields {
 					Field::make( 'complex', 'plans_items', __( 'Plans', 'bulk-qr-theme' ) )
 						->add_fields(
 							[
-								Field::make( 'text', 'plan_title', __( 'Plan Title', 'bulk-qr-theme' ) ),
+								Field::make( 'text', 'plan_title', __( 'Plan Title', 'bulk-qr-theme' ) )->set_width( 70 ),
+								Field::make( 'checkbox', 'plan_one_pay', __( 'Plan On Pay', 'bulk-qr-theme' ) )->set_width( 30 )->set_option_value( 'yes' ),
 								Field::make( 'text', 'plan_price_by_month', __( 'Plan Price by Month', 'bulk-qr-theme' ) )
 									->set_width( 50 ),
 								Field::make( 'text', 'plan_price_by_yearly', __( 'Plan Price by Yearly', 'bulk-qr-theme' ) )

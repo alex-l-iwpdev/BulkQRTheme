@@ -49,9 +49,10 @@ $fields = $args['fields'];
 									<h4><?php echo esc_html( $item['plan_title'] ); ?></h4>
 								<?php } ?>
 								<h4 class="price"
+									data-one_pay="<?php echo ! empty( $item['plan_one_pay'] ) ? 'true' : 'false'; ?>"
 									data-by_month="<?php echo esc_attr( $item['plan_price_by_month'] ); ?>"
 									data-by_yearly="<?php echo esc_attr( $item['plan_price_by_yearly'] ); ?>">
-									<span>$<?php echo esc_attr( $item['plan_price_by_month'] ); ?> </span>/ Month
+									<span>$<?php echo esc_attr( $item['plan_price_by_month'] ); ?> </span><?php echo ! empty( $item['plan_one_pay'] ) ? '' : '/ Month'; ?>
 								</h4>
 								<?php if ( ! empty( $item['plans_description'] ) ) { ?>
 									<ul class="plans-description">

@@ -50,24 +50,34 @@ const plansSubscribe = ( $ ) => {
 			let currentPlan = $( '.plans-radio input:checked' ).val();
 
 			plansItem.map( ( index, item ) => {
+				const priceElement = $( item ).find( '.price' );
+				const isOnePay = priceElement.data( 'one_pay' ) === true;
 
 				let html = '';
 				let stripeLink = '';
-				if ( 'monthly' === currentPlan ) {
-					let monthlyPrice = Math.round( $( item ).find( '.price' ).data( 'by_month' ) * currenCourse );
+
+				if ( isOnePay ) {
+					let monthlyPrice = Math.round( priceElement.data( 'by_month' ) * currenCourse );
 					stripeLink = $( item ).find( '.btn' ).data( 'form_m' );
 
-					html = `<span>${currencySymbol[ symbol ]} ${monthlyPrice}</span> / Monthly`;
+					html = `<span>${currencySymbol[ symbol ]} ${monthlyPrice}</span>`;
+				} else {
+					if ( 'monthly' === currentPlan ) {
+						let monthlyPrice = Math.round( priceElement.data( 'by_month' ) * currenCourse );
+						stripeLink = $( item ).find( '.btn' ).data( 'form_m' );
+
+						html = `<span>${currencySymbol[ symbol ]} ${monthlyPrice}</span> / Monthly`;
+					}
+
+					if ( 'yearly' === currentPlan ) {
+						let yearlyPrice = Math.round( priceElement.data( 'by_yearly' ) * currenCourse );
+						stripeLink = $( item ).find( '.btn' ).data( 'form_y' );
+
+						html = `<span>${currencySymbol[ symbol ]} ${yearlyPrice}</span> / Yearly`;
+					}
 				}
 
-				if ( 'yearly' === currentPlan ) {
-					let yearlyPrice = Math.round( $( item ).find( '.price' ).data( 'by_yearly' ) * currenCourse );
-					stripeLink = $( item ).find( '.btn' ).data( 'form_y' );
-
-					html = `<span>${currencySymbol[ symbol ]} ${yearlyPrice}</span> / Yearly`;
-				}
-
-				$( item ).find( '.price' ).html( html );
+				priceElement.html( html );
 				if ( stripeLink.length ) {
 					$( item ).find( '.btn' ).attr( 'href', stripeLink );
 				}
