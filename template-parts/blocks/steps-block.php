@@ -32,6 +32,11 @@ $fields = $args['fields'];
 						<?php if ( ! empty( $step['step_title'] ) ) { ?>
 							<h4><?php echo esc_html( $step['step_title'] ); ?></h4>
 						<?php } ?>
+						<?php if ( ! empty( $step['text_description'] ) ) { ?>
+							<div class="desctiption">
+								<?php echo wp_kses_post( wpautop( $step['text_description'] ) ); ?>
+							</div>
+						<?php } ?>
 					</div>
 				<?php } ?>
 			</div>

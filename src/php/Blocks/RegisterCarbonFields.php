@@ -69,6 +69,7 @@ class RegisterCarbonFields {
 							[
 								Field::make( 'image', 'image', __( 'Image steps', 'bulk-qr-theme' ) ),
 								Field::make( 'text', 'step_title', __( 'Step Title', 'bulk-qr-theme' ) ),
+								Field::make( 'rich_text', 'step_description', __( 'Step Description', 'bulk-qr-theme' ) ),
 							]
 						),
 					Field::make( 'text', 'cta_button_text', __( 'CTA Button Text', 'bulk-qr-theme' ) )->set_width( 50 ),
