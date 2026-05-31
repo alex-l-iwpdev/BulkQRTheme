@@ -64,6 +64,7 @@ class RegisterCarbonFields {
 			->add_fields(
 				[
 					Field::make( 'text', 'block_title', __( 'Block Title', 'bulk-qr-theme' ) ),
+					Field::make( 'text', 'block_sub_title', __( 'Block Sub Title', 'bulk-qr-theme' ) ),
 					Field::make( 'complex', 'block_steps', __( 'Steps', 'bulk-qr-theme' ) )
 						->add_fields(
 							[

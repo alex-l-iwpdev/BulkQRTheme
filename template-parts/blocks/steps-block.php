@@ -13,6 +13,9 @@ $fields = $args['fields'];
 			<div class="row">
 				<div class="col-12">
 					<h2><?php echo esc_html( $fields['block_title'] ); ?></h2>
+					<?php if ( ! empty( $fields['block_sub_title'] ) ) { ?>
+						<h6><?php echo esc_html( $fields['block_sub_title'] ); ?></h6>
+					<?php } ?>
 				</div>
 			</div>
 		<?php } ?>
