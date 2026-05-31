@@ -1,0 +1,261 @@
+// ============================================================
+//  Section: How It Works — Dark Theme (#0a0a25)
+//  Variables synced with project :root
+// ============================================================
+
+// ── Variables ───────────────────────────────────────────────
+$color-bg:           #0a0a25;
+$color-blue:         #2375E5;                        // var(--blue)
+$color-blue-trans:   rgba(35, 117, 229, 0.5);        // var(--blueTransition)
+$color-blue-glow:    rgba(35, 117, 229, 0.15);
+
+$color-text-white:   #ffffff;
+$color-text-muted:   rgba(255, 255, 255, 0.80);
+$color-line:         rgba(255, 255, 255, 0.1);
+$color-card-bg:      rgba(255, 255, 255, 0.04);
+$color-card-border:  rgba(255, 255, 255, 0.08);
+
+$font-heading:       'Sora', sans-serif;
+$font-body:          'DM Sans', sans-serif;
+
+$badge-size:         52px;
+$transition-base:    0.3s ease;
+
+// ── Breakpoints (Bootstrap-aligned) ─────────────────────────
+$bp-xl:   1199px;
+$bp-lg:   991px;
+$bp-md:   767px;
+$bp-sm:   575px;
+
+// ── Mixin ────────────────────────────────────────────────────
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// ── Section ──────────────────────────────────────────────────
+.how-it-works {
+  background-color: $color-bg;
+  padding: 96px 24px 104px;
+  font-family: $font-body;
+
+  // ── Container ──────────────────────────────────────────────
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    @media screen and (max-width: $bp-xl) {
+      max-width: 960px;
+      padding-inline: 12px;
+    }
+    @media screen and (max-width: $bp-lg) {
+      max-width: 720px;
+    }
+    @media screen and (max-width: $bp-md) {
+      max-width: 540px;
+    }
+    @media screen and (max-width: $bp-sm) {
+      max-width: 100%;
+    }
+  }
+
+  // ── Header ─────────────────────────────────────────────────
+  &__header {
+    text-align: center;
+    margin-bottom: 72px;
+
+    @media screen and (max-width: $bp-md) {
+      margin-bottom: 48px;
+    }
+  }
+
+  &__eyebrow {
+    display: inline-block;
+    font-family: $font-heading;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    color: $color-blue;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  // h2 — размер задаётся типографикой проекта (36px → 28px @xl)
+  &__title {
+    // Цвет задан глобально: h1-h6 { color: #fff !important }
+    margin-bottom: 20px !important;
+  }
+
+  // p — размер задаётся типографикой проекта (18px → 16px @xl)
+  &__subtitle {
+    font-style: italic;
+    color: $color-text-muted;
+    max-width: 480px;
+    margin-inline: auto;
+    margin-bottom: 0;
+  }
+
+  // ── Steps grid ─────────────────────────────────────────────
+  &__steps {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0 24px;
+
+    // 2 колонки на планшете
+    @media screen and (max-width: $bp-lg) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 48px 24px;
+    }
+
+    // 1 колонка на мобиле
+    @media screen and (max-width: $bp-sm) {
+      grid-template-columns: 1fr;
+      gap: 40px 0;
+    }
+  }
+
+  // ── Connector line ─────────────────────────────────────────
+  &__line {
+    position: absolute;
+    top: calc(#{$badge-size} / 2);
+    left:  calc(#{$badge-size} / 2);
+    right: calc(#{$badge-size} / 2);
+    height: 1px;
+    background: $color-line;
+    z-index: 0;
+    pointer-events: none;
+
+    // Скрываем когда сетка ломается
+    @media screen and (max-width: $bp-lg) {
+      display: none;
+    }
+  }
+
+  // ── Single step ────────────────────────────────────────────
+  &__step {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+    transition: transform $transition-base;
+
+    // На мобиле — горизонтальная карточка
+    @media screen and (max-width: $bp-sm) {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 16px;
+      background: $color-card-bg;
+      border: 1px solid $color-card-border;
+      border-radius: 16px;
+      padding: 20px;
+    }
+
+    &:hover {
+      transform: translateY(-4px);
+
+      .how-it-works__icon {
+        color: $color-blue;
+        background: $color-blue-glow;
+        border-color: $color-blue-trans;
+      }
+
+      .how-it-works__badge {
+        background: lighten($color-blue, 8%);
+        box-shadow: 0 8px 28px $color-blue-trans;
+      }
+    }
+  }
+
+  // ── Numbered badge ─────────────────────────────────────────
+  &__badge {
+    @include flex-center;
+    width:  $badge-size;
+    height: $badge-size;
+    border-radius: 50%;
+    background: $color-blue;
+    color: $color-text-white;
+    font-family: $font-heading;
+    font-size: 20px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-bottom: 28px;
+    box-shadow: 0 6px 20px $color-blue-trans;
+    transition: background $transition-base, box-shadow $transition-base;
+
+    @media screen and (max-width: $bp-sm) {
+      width:  40px;
+      height: 40px;
+      font-size: 16px;
+      margin-bottom: 0;
+      margin-top: 4px;
+    }
+  }
+
+  // ── Step body (icon + text) на мобиле в колонку ────────────
+  &__body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  // ── Icon wrapper ───────────────────────────────────────────
+  &__icon {
+    @include flex-center;
+    width:  48px;
+    height: 48px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid $color-card-border;
+    color: $color-text-muted;
+    margin-bottom: 16px;
+    transition: background $transition-base, color $transition-base, border-color $transition-base;
+
+    svg { display: block; flex-shrink: 0; }
+
+    @media screen and (max-width: $bp-sm) {
+      width:  40px;
+      height: 40px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+  }
+
+  // ── Step title — h3 из типографики проекта (30px → 24px @xl)
+  &__step-title {
+    // color: #fff !important  задан глобально для h3
+    margin-bottom: 10px !important;
+    font-size: 18px;
+  }
+
+  // ── Step description — p из типографики проекта (18px → 16px @xl)
+  &__step-desc {
+    font-style: italic;
+    color: $color-text-muted;
+    margin-bottom: 0;
+    max-width: 220px;
+
+    @media screen and (max-width: $bp-sm) {
+      max-width: 100%;
+      font-size: 13px;
+    }
+  }
+}
+
+// ── Адаптив падинга секции ───────────────────────────────────
+.how-it-works {
+  @media screen and (max-width: $bp-xl) {
+    padding: 72px 24px 80px;
+  }
+  @media screen and (max-width: $bp-lg) {
+    padding: 60px 16px 68px;
+  }
+  @media screen and (max-width: $bp-md) {
+    padding: 48px 16px 56px;
+  }
+  @media screen and (max-width: $bp-sm) {
+    padding: 40px 12px 48px;
+  }
+}

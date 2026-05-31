@@ -33,6 +33,7 @@
 @import "blocks/create";
 @import "blocks/hero-banner";
 @import "blocks/subscribe";
+@import "blocks/how-it-works";
 
 :root{
     --blueTransition: rgba(35, 117, 229, 0.5);
@@ -44,7 +45,7 @@
             margin: 24px 0 0;
         }
     }
-    
+
 }
 section{
     .col-lg-6{
@@ -62,7 +63,7 @@ section{
                 margin-left: auto;
             }
         }
-        
+
     }
     &.section-text{
         @media screen and (max-width: 991px){
