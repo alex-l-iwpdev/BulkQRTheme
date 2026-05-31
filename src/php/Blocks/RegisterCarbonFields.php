@@ -402,6 +402,43 @@ class RegisterCarbonFields {
 				);
 			} );
 
+		// Bulk Generation Block.
+		Block::make( __( 'Bulk Block', 'bulk-qr-theme' ) )
+			->add_fields(
+				[
+					Field::make( 'text', 'eyebrow', __( 'Eyebrow', 'bulk-qr-theme' ) ),
+					Field::make( 'text', 'title', __( 'Title', 'bulk-qr-theme' ) ),
+					Field::make( 'textarea', 'subtitle', __( 'Subtitle', 'bulk-qr-theme' ) ),
+					Field::make( 'complex', 'steps', __( 'Steps', 'bulk-qr-theme' ) )
+						->add_fields(
+							[
+								Field::make( 'image', 'icon', __( 'Icon (SVG/Image)', 'bulk-qr-theme' ) ),
+								Field::make( 'select', 'icon_color', __( 'Icon Color', 'bulk-qr-theme' ) )
+									->add_options( [
+										'orange' => __( 'Orange', 'bulk-qr-theme' ),
+										'purple' => __( 'Purple', 'bulk-qr-theme' ),
+										'blue'   => __( 'Blue', 'bulk-qr-theme' ),
+										'green'  => __( 'Green', 'bulk-qr-theme' ),
+									] ),
+								Field::make( 'text', 'step_title', __( 'Step Title', 'bulk-qr-theme' ) ),
+								Field::make( 'textarea', 'step_description', __( 'Step Description', 'bulk-qr-theme' ) ),
+							]
+						),
+				]
+			)
+			->set_category( 'bulk-qr-theme', 'BQS Blocks', 'admin-appearance' )
+			->set_render_callback( function ( $fields, $attributes, $inner_blocks ) {
+				get_template_part(
+					'template-parts/blocks/bulk',
+					'',
+					[
+						'attributes'   => $attributes,
+						'inner_blocks' => $inner_blocks,
+						'fields'       => $fields,
+					]
+				);
+			} );
+
 	}
 
 	/**
