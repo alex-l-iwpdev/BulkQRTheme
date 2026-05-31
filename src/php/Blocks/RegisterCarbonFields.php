@@ -304,6 +304,35 @@ class RegisterCarbonFields {
 				);
 			} );
 
+		// Short Links Block.
+		Block::make( __( 'Short Links', 'bulk-qr-theme' ) )
+			->add_fields(
+				[
+					Field::make( 'text', 'eyebrow', __( 'Eyebrow', 'bulk-qr-theme' ) ),
+					Field::make( 'text', 'title', __( 'Title', 'bulk-qr-theme' ) ),
+					Field::make( 'textarea', 'description', __( 'Description', 'bulk-qr-theme' ) ),
+					Field::make( 'complex', 'list_items', __( 'List Items', 'bulk-qr-theme' ) )
+						->add_fields(
+							[
+								Field::make( 'text', 'item_text', __( 'Item Text', 'bulk-qr-theme' ) ),
+							]
+						),
+					Field::make( 'image', 'image', __( 'Image', 'bulk-qr-theme' ) ),
+				]
+			)
+			->set_category( 'bulk-qr-theme', 'BQS Blocks', 'admin-appearance' )
+			->set_render_callback( function ( $fields, $attributes, $inner_blocks ) {
+				get_template_part(
+					'template-parts/blocks/short-links',
+					'',
+					[
+						'attributes'   => $attributes,
+						'inner_blocks' => $inner_blocks,
+						'fields'       => $fields,
+					]
+				);
+			} );
+
 		// How It Works Block.
 		Block::make( __( 'How It Works', 'bulk-qr-theme' ) )
 			->add_fields(
