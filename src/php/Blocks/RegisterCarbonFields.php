@@ -363,6 +363,45 @@ class RegisterCarbonFields {
 				);
 			} );
 
+		// Features Block.
+		Block::make( __( 'Features Block', 'bulk-qr-theme' ) )
+			->add_fields(
+				[
+					Field::make( 'text', 'eyebrow', __( 'Eyebrow', 'bulk-qr-theme' ) ),
+					Field::make( 'text', 'title', __( 'Title', 'bulk-qr-theme' ) ),
+					Field::make( 'textarea', 'subtitle', __( 'Subtitle', 'bulk-qr-theme' ) ),
+					Field::make( 'complex', 'features', __( 'Features', 'bulk-qr-theme' ) )
+						->add_fields(
+							[
+								Field::make( 'image', 'icon_image', __( 'Icon (Image)', 'bulk-qr-theme' ) ),
+								Field::make( 'select', 'icon_color', __( 'Icon Color', 'bulk-qr-theme' ) )
+									->add_options( [
+										'blue'   => __( 'Blue', 'bulk-qr-theme' ),
+										'green'  => __( 'Green', 'bulk-qr-theme' ),
+										'yellow' => __( 'Yellow', 'bulk-qr-theme' ),
+										'purple' => __( 'Purple', 'bulk-qr-theme' ),
+										'orange' => __( 'Orange', 'bulk-qr-theme' ),
+										'teal'   => __( 'Teal', 'bulk-qr-theme' ),
+									] ),
+								Field::make( 'text', 'feature_title', __( 'Feature Title', 'bulk-qr-theme' ) ),
+								Field::make( 'textarea', 'feature_description', __( 'Feature Description', 'bulk-qr-theme' ) ),
+							]
+						),
+				]
+			)
+			->set_category( 'bulk-qr-theme', 'BQS Blocks', 'admin-appearance' )
+			->set_render_callback( function ( $fields, $attributes, $inner_blocks ) {
+				get_template_part(
+					'template-parts/blocks/features',
+					'block',
+					[
+						'attributes'   => $attributes,
+						'inner_blocks' => $inner_blocks,
+						'fields'       => $fields,
+					]
+				);
+			} );
+
 	}
 
 	/**
