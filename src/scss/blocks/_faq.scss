@@ -1,96 +1,284 @@
-.faq-section{
-    margin-bottom: 50px;
-    h2{
-        margin: 0 24px 0 0;
-        @media screen and (max-width: 991px){
-            margin: 0 0 24px 0;
-            text-align: center;
-        }
+// ============================================================
+//  Section: FAQ — Dark Theme (#0a0a25)
+//  Palette: --blue: #2375E5 / --blueTransition: rgba(35,117,229,0.5)
+// ============================================================
+
+$color-bg:          #0a0a25;
+$color-blue:        #2375E5;
+$color-blue-trans:  rgba(35, 117, 229, 0.5);
+$color-blue-dim:    rgba(35, 117, 229, 0.12);
+$color-blue-border: rgba(35, 117, 229, 0.25);
+
+$color-white:       #ffffff;
+$color-text-muted:  rgba(255, 255, 255, 0.55);
+$color-text-dim:    rgba(255, 255, 255, 0.3);
+
+$color-panel-bg:    #0d1030;
+$color-panel-inner: rgba(255, 255, 255, 0.03);
+$color-border:      rgba(255, 255, 255, 0.07);
+$color-border-open: rgba(35, 117, 229, 0.2);
+
+$font-heading: 'Sora', sans-serif;
+$font-body:    'DM Sans', sans-serif;
+$transition:   0.3s ease;
+
+$bp-xl: 1199px;
+$bp-lg: 991px;
+$bp-md: 767px;
+$bp-sm: 575px;
+
+// ── Section ──────────────────────────────────────────────────
+.faq {
+    background-color: $color-bg;
+    padding: 96px 24px 104px;
+    font-family: $font-body;
+
+    @media screen and (max-width: $bp-xl) { padding: 72px 24px 80px; }
+    @media screen and (max-width: $bp-lg) { padding: 60px 16px 68px; }
+    @media screen and (max-width: $bp-md) { padding: 48px 16px 56px; }
+    @media screen and (max-width: $bp-sm) { padding: 40px 12px 48px; }
+
+    // ── Layout: sidebar + content ──────────────────────────────
+    &__container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 220px 1fr;
+        gap: 48px;
+        align-items: start;
+
+        @media screen and (max-width: $bp-xl) { max-width: 960px; gap: 40px; grid-template-columns: 200px 1fr; }
+        @media screen and (max-width: $bp-lg) { max-width: 720px; grid-template-columns: 1fr; gap: 32px; }
+        @media screen and (max-width: $bp-md) { max-width: 540px; }
+        @media screen and (max-width: $bp-sm) { max-width: 100%; }
     }
-    .col-auto{
-        max-width: 325px;
-        @media screen and (max-width: 1199px){
-            width: 265px;
-        }
-        @media screen and (max-width: 991px){
-            width: 100%;
-            max-width: 100%;
-        }
-    }
-    &:first-of-type{
-       .row{
-            position: relative;
-            &:before{
-                content: '';
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                background: url(../images/qr.png) no-repeat center center;
-                background-size: contain;
-                z-index: -1; 
-                left: 50%;
-                transform: translate(-50%, -50%);
-                top: 50%;
-                opacity: 0.3;
-            }
-        }
-    }
-} 
-.faq-items{
-    .faq-item{
-        border-bottom: 2px solid #fff;
-        padding: 24px;
-        @media screen and (max-width: 991px){
-            padding: 12px;
-        }
-        &:first-of-type{
-            padding-top: 0;
-        }
-        h3{
+
+    // ── Sidebar ────────────────────────────────────────────────
+    &__sidebar {
+        position: sticky;
+        top: 24px;
+        background: $color-panel-bg;
+        border: 1px solid $color-border;
+        border-radius: 16px;
+        padding: 20px 16px;
+
+        @media screen and (max-width: $bp-lg) {
+            position: static;
             display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            padding: 16px;
+        }
+    }
+
+    &__sidebar-label {
+        font-family: $font-heading;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        color: $color-text-dim;
+        text-transform: uppercase;
+        margin-bottom: 14px;
+        padding: 0 4px;
+
+        @media screen and (max-width: $bp-lg) {
+            margin-bottom: 0;
+            white-space: nowrap;
+        }
+    }
+
+    &__nav {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+
+        @media screen and (max-width: $bp-lg) {
             flex-direction: row;
             flex-wrap: wrap;
-            justify-content: space-between;
-            margin-bottom: 0;
-            align-items: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            @media screen and (max-width: 575px){
-                font-size: 20px;
-                padding-right: 40px;
-            }
-            &:hover{
-                color: #2375E5;
-            }
+            gap: 6px;
         }
-        i{
-            &:before{
-                font-size: 48px;
-                @media screen and (max-width: 575px){
-                    font-size: 24px;
-                    position: absolute;
-                    top: 50%;
-                    transform: translateY(-50%);
-                    right: 0px;
-                }
-            }
-        }
-        .faq-description{
-            display: none;
-            margin-top: 24px;
-            p{
-                font-size: 20px;
-                color: #a9a9a9; 
-            }
-            @media screen and (max-width: 575px){
-                margin-top: 5px;
-                p{
-                    font-size: 16px;
-                }
-            }
-            
+    }
+
+    &__nav-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 9px 12px;
+        border-radius: 10px;
+        font-family: $font-heading;
+        font-size: 13px;
+        font-weight: 500;
+        color: $color-text-muted;
+        text-decoration: none;
+        transition: background $transition, color $transition;
+        cursor: pointer;
+
+        img {
+            width: 16px;
+            height: 16px;
+            object-fit: contain;
+            flex-shrink: 0;
         }
 
+        @media screen and (max-width: $bp-lg) {
+            padding: 7px 12px;
+            font-size: 12px;
+            background: $color-panel-inner;
+            border: 1px solid $color-border;
+        }
+
+        &:hover {
+            background: rgba(255,255,255,0.05);
+            color: $color-white;
+        }
+
+        &--active {
+            background: $color-blue-dim !important;
+            color: $color-blue !important;
+            border-color: $color-blue-border !important;
+        }
+
+        // Sub-item (no icon, indented)
+        &.faq__nav-sub {
+            padding-left: 36px;
+            font-size: 12px;
+            font-weight: 400;
+
+            @media screen and (max-width: $bp-lg) { padding-left: 12px; }
+        }
+    }
+
+    // ── Content area ───────────────────────────────────────────
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 48px;
+
+        @media screen and (max-width: $bp-md) { gap: 36px; }
+    }
+
+    // ── FAQ Group ──────────────────────────────────────────────
+    &__group {
+        scroll-margin-top: 32px;
+    }
+
+    &__group-header {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 16px;
+    }
+
+    &__group-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+        flex-shrink: 0;
+        overflow: hidden;
+
+        img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+
+        &--blue   { background: rgba(35,117,229,0.15); color: #2375E5; border: 1px solid rgba(35,117,229,0.25); }
+        &--orange { background: rgba(249,115,22,0.15); color: #f97316; border: 1px solid rgba(249,115,22,0.25); }
+        &--green  { background: rgba(34,197,94,0.15);  color: #22c55e; border: 1px solid rgba(34,197,94,0.25);  }
+        &--purple { background: rgba(168,85,247,0.15); color: #a855f7; border: 1px solid rgba(168,85,247,0.25); }
+        &--yellow { background: rgba(234,179,8,0.15);  color: #eab308; border: 1px solid rgba(234,179,8,0.25);  }
+        &--teal   { background: rgba(20,184,166,0.15); color: #14b8a6; border: 1px solid rgba(20,184,166,0.25); }
+    }
+
+    // h3 — глобальная типографика (30px → 24px)
+    &__group-title {
+        margin-bottom: 0 !important;
+    }
+
+    // ── FAQ Item ───────────────────────────────────────────────
+    &__item {
+        background: $color-panel-bg;
+        border: 1px solid $color-border;
+        border-radius: 14px;
+        overflow: hidden;
+        margin-bottom: 8px;
+        transition: border-color $transition;
+
+        &:last-child { margin-bottom: 0; }
+
+        &--open {
+            border-color: $color-border-open;
+
+            .faq__arrow {
+                transform: rotate(180deg);
+                color: $color-blue;
+            }
+
+            .faq__q { color: $color-white; }
+        }
+    }
+
+    // ── Question button ────────────────────────────────────────
+    &__q {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 18px 20px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-family: $font-heading;
+        font-size: 16px;
+        font-weight: 600;
+        color: rgba(255,255,255,0.85);
+        text-align: left;
+        transition: color $transition;
+
+        @media screen and (max-width: $bp-xl) { font-size: 15px; }
+        @media screen and (max-width: $bp-sm) { font-size: 14px; padding: 16px; }
+
+        &:hover { color: $color-white; }
+    }
+
+    &__arrow {
+        flex-shrink: 0;
+        color: $color-text-muted;
+        transition: transform $transition, color $transition;
+    }
+
+    // ── Answer panel ──────────────────────────────────────────
+    &__a {
+        // Closed: height 0
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.35s ease, padding 0.35s ease;
+
+        p {
+            font-style: italic;
+            color: $color-text-muted;
+            padding: 0 20px 20px;
+            margin: 0;
+            line-height: 1.7;
+
+            @media screen and (max-width: $bp-sm) { padding: 0 16px 16px; }
+
+            a {
+                color: $color-blue;
+                text-decoration: underline;
+                text-underline-offset: 3px;
+                transition: opacity $transition;
+                &:hover { opacity: 0.8; }
+            }
+        }
+
+        .faq__item--open & {
+            max-height: 400px;
+        }
     }
 }

@@ -282,11 +282,28 @@ class RegisterCarbonFields {
 			->add_fields(
 				[
 					Field::make( 'text', 'title', __( 'Title', 'bulk-qr-theme' ) ),
-					Field::make( 'complex', 'faq_items', __( 'FAQ Item', 'bulk-qr-theme' ) )
+					Field::make( 'complex', 'faq_categories', __( 'FAQ Categories', 'bulk-qr-theme' ) )
 						->add_fields(
 							[
-								Field::make( 'text', 'question', __( 'Question', 'bulk-qr-theme' ) ),
-								Field::make( 'textarea', 'answer', __( 'Answer', 'bulk-qr-theme' ) ),
+								Field::make( 'text', 'category_title', __( 'Category Title', 'bulk-qr-theme' ) )->set_width( 33 ),
+								Field::make( 'text', 'category_id', __( 'Category ID (for anchor)', 'bulk-qr-theme' ) )->set_width( 33 ),
+								Field::make( 'image', 'category_icon', __( 'Category Icon', 'bulk-qr-theme' ) )->set_width( 33 ),
+								Field::make( 'select', 'category_icon_color', __( 'Icon Color', 'bulk-qr-theme' ) )
+									->add_options( [
+										'blue'   => __( 'Blue', 'bulk-qr-theme' ),
+										'green'  => __( 'Green', 'bulk-qr-theme' ),
+										'yellow' => __( 'Yellow', 'bulk-qr-theme' ),
+										'purple' => __( 'Purple', 'bulk-qr-theme' ),
+										'orange' => __( 'Orange', 'bulk-qr-theme' ),
+										'teal'   => __( 'Teal', 'bulk-qr-theme' ),
+									] )->set_width( 50 ),
+								Field::make( 'complex', 'faq_items', __( 'FAQ Items', 'bulk-qr-theme' ) )
+									->add_fields(
+										[
+											Field::make( 'text', 'question', __( 'Question', 'bulk-qr-theme' ) ),
+											Field::make( 'textarea', 'answer', __( 'Answer', 'bulk-qr-theme' ) ),
+										]
+									),
 							]
 						),
 				]
@@ -294,8 +311,8 @@ class RegisterCarbonFields {
 			->set_category( 'bulk-qr-theme', 'BQS Blocks', 'admin-appearance' )
 			->set_render_callback( function ( $fields, $attributes, $inner_blocks ) {
 				get_template_part(
-					'template-parts/blocks/faq',
-					'block',
+					'template-parts/blocks/faq-block',
+					'',
 					[
 						'attributes'   => $attributes,
 						'inner_blocks' => $inner_blocks,
