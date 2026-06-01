@@ -1,0 +1,267 @@
+// ============================================================
+//  Section: API for Developers — Dark Theme (#0a0a25)
+//  Real endpoints from stage.bulkqr.org/api
+// ============================================================
+
+$color-bg:          #0a0a25;
+$color-blue:        #2375E5;
+$color-blue-trans:  rgba(35, 117, 229, 0.5);
+$color-blue-dim:    rgba(35, 117, 229, 0.12);
+$color-blue-border: rgba(35, 117, 229, 0.2);
+
+$color-white:       #ffffff;
+$color-text-muted:  rgba(255, 255, 255, 0.80);
+$color-text-dim:    rgba(255, 255, 255, 0.3);
+
+$color-panel-bg:    #0d1030;
+$color-panel-inner: #080f28;
+$color-border:      rgba(255, 255, 255, 0.07);
+
+// Syntax
+$syn-comment: rgba(255, 255, 255, 0.3);
+$syn-string:  #64d2ff;
+$syn-key:     #79c0ff;
+$syn-value:   #56d364;
+$syn-number:  #f8c555;
+
+$font-heading: 'Sora', sans-serif;
+$font-body:    'DM Sans', sans-serif;
+$font-mono:    'JetBrains Mono', monospace;
+$transition:   0.3s ease;
+
+// Breakpoints
+$bp-xl: 1199px;
+$bp-lg: 991px;
+$bp-md: 767px;
+$bp-sm: 575px;
+
+// ── Section ──────────────────────────────────────────────────
+.api {
+  background-color: $color-bg;
+  padding: 96px 24px 104px;
+  font-family: $font-body;
+
+  @media screen and (max-width: $bp-xl) { padding: 72px 24px 80px; }
+  @media screen and (max-width: $bp-lg) { padding: 60px 16px 68px; }
+  @media screen and (max-width: $bp-md) { padding: 48px 16px 56px; }
+  @media screen and (max-width: $bp-sm) { padding: 40px 12px 48px; }
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    @media screen and (max-width: $bp-xl) { max-width: 960px; }
+    @media screen and (max-width: $bp-lg) { max-width: 720px; }
+    @media screen and (max-width: $bp-md) { max-width: 540px; }
+    @media screen and (max-width: $bp-sm) { max-width: 100%; }
+  }
+
+  // ── Header ─────────────────────────────────────────────────
+  &__header {
+    text-align: center;
+    margin-bottom: 64px;
+
+    @media screen and (max-width: $bp-md) { margin-bottom: 40px; }
+  }
+
+  &__eyebrow {
+    display: inline-block;
+    font-family: $font-heading;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    color: $color-blue;
+    text-transform: uppercase;
+    background: $color-blue-dim;
+    border: 1px solid $color-blue-border;
+    border-radius: 100px;
+    padding: 5px 14px;
+    margin-bottom: 24px;
+  }
+
+  &__title {
+    margin-bottom: 20px !important;
+    line-height: 1.2;
+  }
+
+  &__subtitle {
+    font-style: italic;
+    color: $color-text-muted;
+    max-width: 560px;
+    margin-inline: auto;
+    margin-bottom: 0;
+  }
+
+  // ── Two columns ────────────────────────────────────────────
+  &__body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: start;
+
+    @media screen and (max-width: $bp-lg) {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+  }
+
+  // ── Code panel ─────────────────────────────────────────────
+  &__code-panel {
+    background: $color-panel-bg;
+    border: 1px solid $color-border;
+    border-radius: 20px;
+    overflow: hidden;
+    position: sticky;
+    top: 24px;
+
+    @media screen and (max-width: $bp-lg) {
+      position: static;
+    }
+  }
+
+  &__code-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 20px;
+    border-bottom: 1px solid $color-border;
+  }
+
+  &__code-title {
+    font-family: $font-heading;
+    font-size: 13px;
+    font-weight: 600;
+    color: $color-text-muted;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__code-block {
+    padding: 24px 20px;
+    overflow-x: auto;
+
+    pre {
+      font-family: $font-mono;
+      font-size: 12.5px;
+      line-height: 1.8;
+      color: $color-white;
+      margin: 0;
+      white-space: pre-wrap;
+      word-break: break-word;
+
+      @media screen and (max-width: $bp-sm) { font-size: 11.5px; }
+
+      .c { color: $syn-comment; font-style: italic; }
+      .s { color: $syn-string; }
+      .k { color: $syn-key; }
+      .v { color: $syn-value; }
+      .n { color: $syn-number; }
+    }
+  }
+
+  // ── Endpoints column ───────────────────────────────────────
+  &__endpoints {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  // h3 — глобальная типографика
+  &__endpoints-title {
+    margin-bottom: 16px !important;
+  }
+
+  // ── Endpoint group ─────────────────────────────────────────
+  &__group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 8px;
+
+    &:last-of-type { margin-bottom: 0; }
+  }
+
+  &__group-label {
+    font-family: $font-heading;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: $color-text-dim;
+    padding: 4px 0 2px;
+    border-bottom: 1px solid $color-border;
+    margin-bottom: 4px;
+  }
+
+  // ── Single endpoint row ────────────────────────────────────
+  &__endpoint {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: $color-panel-bg;
+    border: 1px solid $color-border;
+    border-radius: 10px;
+    padding: 10px 16px;
+    transition: border-color $transition, background $transition, transform $transition;
+    cursor: default;
+
+    @media screen and (max-width: $bp-sm) { padding: 9px 12px; }
+
+    &:hover {
+      border-color: $color-blue-border;
+      background: rgba(35, 117, 229, 0.04);
+      transform: translateX(4px);
+    }
+  }
+
+  &__endpoint-path {
+    font-family: $font-mono;
+    font-size: 12px;
+    color: $color-text-muted;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: color $transition;
+
+    .api__endpoint:hover & { color: $color-white; }
+  }
+
+  // ── Docs link ──────────────────────────────────────────────
+  &__docs-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+    font-family: $font-heading;
+    font-size: 14px;
+    font-weight: 600;
+    color: $color-blue;
+    text-decoration: none;
+    transition: gap $transition, opacity $transition;
+
+    &:hover { opacity: 0.8; gap: 12px; }
+  }
+
+  // ── Method badges ──────────────────────────────────────────
+  &__method {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: $font-mono;
+    font-size: 10px;
+    font-weight: 500;
+    border-radius: 5px;
+    padding: 2px 7px;
+    flex-shrink: 0;
+    letter-spacing: 0.04em;
+    min-width: 42px;
+    text-align: center;
+
+    &--post   { background: rgba(35, 117, 229, 0.18); color: #60a5fa; border: 1px solid rgba(35,117,229,0.3); }
+    &--get    { background: rgba(34, 197, 94, 0.15);  color: #4ade80; border: 1px solid rgba(34,197,94,0.3);  }
+    &--delete { background: rgba(239, 68, 68, 0.15);  color: #f87171; border: 1px solid rgba(239,68,68,0.3);  }
+    &--patch  { background: rgba(234, 179, 8, 0.15);  color: #fbbf24; border: 1px solid rgba(234,179,8,0.3);  }
+  }
+}

@@ -439,6 +439,29 @@ class RegisterCarbonFields {
 				);
 			} );
 
+		// API Section Block.
+		Block::make( __( 'API Section', 'bulk-qr-theme' ) )
+			->add_fields(
+				[
+					Field::make( 'text', 'eyebrow', __( 'Eyebrow', 'bulk-qr-theme' ) ),
+					Field::make( 'text', 'title', __( 'Title', 'bulk-qr-theme' ) ),
+					Field::make( 'textarea', 'subtitle', __( 'Subtitle', 'bulk-qr-theme' ) ),
+					Field::make( 'text', 'docs_link', __( 'Docs Link', 'bulk-qr-theme' ) ),
+				]
+			)
+			->set_category( 'bulk-qr-theme', 'BQS Blocks', 'admin-appearance' )
+			->set_render_callback( function ( $fields, $attributes, $inner_blocks ) {
+				get_template_part(
+					'template-parts/blocks/api-section',
+					'',
+					[
+						'attributes'   => $attributes,
+						'inner_blocks' => $inner_blocks,
+						'fields'       => $fields,
+					]
+				);
+			} );
+
 	}
 
 	/**
