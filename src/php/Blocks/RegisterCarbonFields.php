@@ -462,6 +462,41 @@ class RegisterCarbonFields {
 				);
 			} );
 
+		// CTA Block.
+		Block::make( __( 'CTA Block', 'bulk-qr-theme' ) )
+			->add_fields(
+				[
+					Field::make( 'text', 'title', __( 'Title', 'bulk-qr-theme' ) ),
+					Field::make( 'textarea', 'subtitle', __( 'Subtitle', 'bulk-qr-theme' ) ),
+					Field::make( 'text', 'primary_btn_text', __( 'Primary Button Text', 'bulk-qr-theme' ) )
+						->set_width( 50 ),
+					Field::make( 'text', 'primary_btn_link', __( 'Primary Button Link', 'bulk-qr-theme' ) )
+						->set_width( 50 ),
+					Field::make( 'text', 'secondary_btn_text', __( 'Secondary Button Text', 'bulk-qr-theme' ) )
+						->set_width( 50 ),
+					Field::make( 'text', 'secondary_btn_link', __( 'Secondary Button Link', 'bulk-qr-theme' ) )
+						->set_width( 50 ),
+					Field::make( 'complex', 'trust_items', __( 'Trust Items', 'bulk-qr-theme' ) )
+						->add_fields(
+							[
+								Field::make( 'text', 'text', __( 'Text', 'bulk-qr-theme' ) ),
+							]
+						),
+				]
+			)
+			->set_category( 'bulk-qr-theme', 'BQS Blocks', 'admin-appearance' )
+			->set_render_callback( function ( $fields, $attributes, $inner_blocks ) {
+				get_template_part(
+					'template-parts/blocks/cta',
+					'',
+					[
+						'attributes'   => $attributes,
+						'inner_blocks' => $inner_blocks,
+						'fields'       => $fields,
+					]
+				);
+			} );
+
 	}
 
 	/**
