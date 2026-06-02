@@ -1,14 +1,20 @@
 .steps{
     img{
-        width: 100%;    
+        width: 100%;
     }
     h2,
-    h4{
+    h4,
+    h6{
         text-align: center;
     }
     h4{
         margin-top: 24px;
-        margin-bottom: 0;
+        margin-bottom: 24px
+    }
+
+    .description{
+        margin-bottom: 100px;
+        text-align: center;
     }
     @media screen and (max-width: 991px) {
         .col-md-4{

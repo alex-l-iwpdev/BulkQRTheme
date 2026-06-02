@@ -64,11 +64,13 @@ class RegisterCarbonFields {
 			->add_fields(
 				[
 					Field::make( 'text', 'block_title', __( 'Block Title', 'bulk-qr-theme' ) ),
+					Field::make( 'text', 'block_sub_title', __( 'Block Sub Title', 'bulk-qr-theme' ) ),
 					Field::make( 'complex', 'block_steps', __( 'Steps', 'bulk-qr-theme' ) )
 						->add_fields(
 							[
 								Field::make( 'image', 'image', __( 'Image steps', 'bulk-qr-theme' ) ),
 								Field::make( 'text', 'step_title', __( 'Step Title', 'bulk-qr-theme' ) ),
+								Field::make( 'rich_text', 'step_description', __( 'Step Description', 'bulk-qr-theme' ) ),
 							]
 						),
 					Field::make( 'text', 'cta_button_text', __( 'CTA Button Text', 'bulk-qr-theme' ) )->set_width( 50 ),
@@ -237,7 +239,8 @@ class RegisterCarbonFields {
 					Field::make( 'complex', 'plans_items', __( 'Plans', 'bulk-qr-theme' ) )
 						->add_fields(
 							[
-								Field::make( 'text', 'plan_title', __( 'Plan Title', 'bulk-qr-theme' ) ),
+								Field::make( 'text', 'plan_title', __( 'Plan Title', 'bulk-qr-theme' ) )->set_width( 70 ),
+								Field::make( 'checkbox', 'plan_one_pay', __( 'Plan On Pay', 'bulk-qr-theme' ) )->set_width( 30 )->set_option_value( 'yes' ),
 								Field::make( 'text', 'plan_price_by_month', __( 'Plan Price by Month', 'bulk-qr-theme' ) )
 									->set_width( 50 ),
 								Field::make( 'text', 'plan_price_by_yearly', __( 'Plan Price by Yearly', 'bulk-qr-theme' ) )
@@ -279,11 +282,28 @@ class RegisterCarbonFields {
 			->add_fields(
 				[
 					Field::make( 'text', 'title', __( 'Title', 'bulk-qr-theme' ) ),
-					Field::make( 'complex', 'faq_items', __( 'FAQ Item', 'bulk-qr-theme' ) )
+					Field::make( 'complex', 'faq_categories', __( 'FAQ Categories', 'bulk-qr-theme' ) )
 						->add_fields(
 							[
-								Field::make( 'text', 'question', __( 'Question', 'bulk-qr-theme' ) ),
-								Field::make( 'textarea', 'answer', __( 'Answer', 'bulk-qr-theme' ) ),
+								Field::make( 'text', 'category_title', __( 'Category Title', 'bulk-qr-theme' ) )->set_width( 33 ),
+								Field::make( 'text', 'category_id', __( 'Category ID (for anchor)', 'bulk-qr-theme' ) )->set_width( 33 ),
+								Field::make( 'image', 'category_icon', __( 'Category Icon', 'bulk-qr-theme' ) )->set_width( 33 ),
+								Field::make( 'select', 'category_icon_color', __( 'Icon Color', 'bulk-qr-theme' ) )
+									->add_options( [
+										'blue'   => __( 'Blue', 'bulk-qr-theme' ),
+										'green'  => __( 'Green', 'bulk-qr-theme' ),
+										'yellow' => __( 'Yellow', 'bulk-qr-theme' ),
+										'purple' => __( 'Purple', 'bulk-qr-theme' ),
+										'orange' => __( 'Orange', 'bulk-qr-theme' ),
+										'teal'   => __( 'Teal', 'bulk-qr-theme' ),
+									] )->set_width( 50 ),
+								Field::make( 'complex', 'faq_items', __( 'FAQ Items', 'bulk-qr-theme' ) )
+									->add_fields(
+										[
+											Field::make( 'text', 'question', __( 'Question', 'bulk-qr-theme' ) ),
+											Field::make( 'textarea', 'answer', __( 'Answer', 'bulk-qr-theme' ) ),
+										]
+									),
 							]
 						),
 				]
@@ -291,8 +311,201 @@ class RegisterCarbonFields {
 			->set_category( 'bulk-qr-theme', 'BQS Blocks', 'admin-appearance' )
 			->set_render_callback( function ( $fields, $attributes, $inner_blocks ) {
 				get_template_part(
-					'template-parts/blocks/faq',
+					'template-parts/blocks/faq-block',
+					'',
+					[
+						'attributes'   => $attributes,
+						'inner_blocks' => $inner_blocks,
+						'fields'       => $fields,
+					]
+				);
+			} );
+
+		// Short Links Block.
+		Block::make( __( 'Short Links', 'bulk-qr-theme' ) )
+			->add_fields(
+				[
+					Field::make( 'text', 'eyebrow', __( 'Eyebrow', 'bulk-qr-theme' ) ),
+					Field::make( 'text', 'title', __( 'Title', 'bulk-qr-theme' ) ),
+					Field::make( 'textarea', 'description', __( 'Description', 'bulk-qr-theme' ) ),
+					Field::make( 'complex', 'list_items', __( 'List Items', 'bulk-qr-theme' ) )
+						->add_fields(
+							[
+								Field::make( 'text', 'item_text', __( 'Item Text', 'bulk-qr-theme' ) ),
+							]
+						),
+					Field::make( 'image', 'image', __( 'Image', 'bulk-qr-theme' ) ),
+				]
+			)
+			->set_category( 'bulk-qr-theme', 'BQS Blocks', 'admin-appearance' )
+			->set_render_callback( function ( $fields, $attributes, $inner_blocks ) {
+				get_template_part(
+					'template-parts/blocks/short-links',
+					'',
+					[
+						'attributes'   => $attributes,
+						'inner_blocks' => $inner_blocks,
+						'fields'       => $fields,
+					]
+				);
+			} );
+
+		// How It Works Block.
+		Block::make( __( 'How It Works', 'bulk-qr-theme' ) )
+			->add_fields(
+				[
+					Field::make( 'text', 'eyebrow', __( 'Eyebrow', 'bulk-qr-theme' ) ),
+					Field::make( 'text', 'title', __( 'Title', 'bulk-qr-theme' ) ),
+					Field::make( 'textarea', 'subtitle', __( 'Subtitle', 'bulk-qr-theme' ) ),
+					Field::make( 'complex', 'steps', __( 'Steps', 'bulk-qr-theme' ) )
+						->add_fields(
+							[
+								Field::make( 'image', 'icon', __( 'Icon (SVG/Image)', 'bulk-qr-theme' ) ),
+								Field::make( 'text', 'step_title', __( 'Step Title', 'bulk-qr-theme' ) ),
+								Field::make( 'textarea', 'step_description', __( 'Step Description', 'bulk-qr-theme' ) ),
+							]
+						),
+				]
+			)
+			->set_category( 'bulk-qr-theme', 'BQS Blocks', 'admin-appearance' )
+			->set_render_callback( function ( $fields, $attributes, $inner_blocks ) {
+				get_template_part(
+					'template-parts/blocks/how-it-works',
+					'',
+					[
+						'attributes'   => $attributes,
+						'inner_blocks' => $inner_blocks,
+						'fields'       => $fields,
+					]
+				);
+			} );
+
+		// Features Block.
+		Block::make( __( 'Features Block', 'bulk-qr-theme' ) )
+			->add_fields(
+				[
+					Field::make( 'text', 'eyebrow', __( 'Eyebrow', 'bulk-qr-theme' ) ),
+					Field::make( 'text', 'title', __( 'Title', 'bulk-qr-theme' ) ),
+					Field::make( 'textarea', 'subtitle', __( 'Subtitle', 'bulk-qr-theme' ) ),
+					Field::make( 'complex', 'features', __( 'Features', 'bulk-qr-theme' ) )
+						->add_fields(
+							[
+								Field::make( 'image', 'icon_image', __( 'Icon (Image)', 'bulk-qr-theme' ) ),
+								Field::make( 'select', 'icon_color', __( 'Icon Color', 'bulk-qr-theme' ) )
+									->add_options( [
+										'blue'   => __( 'Blue', 'bulk-qr-theme' ),
+										'green'  => __( 'Green', 'bulk-qr-theme' ),
+										'yellow' => __( 'Yellow', 'bulk-qr-theme' ),
+										'purple' => __( 'Purple', 'bulk-qr-theme' ),
+										'orange' => __( 'Orange', 'bulk-qr-theme' ),
+										'teal'   => __( 'Teal', 'bulk-qr-theme' ),
+									] ),
+								Field::make( 'text', 'feature_title', __( 'Feature Title', 'bulk-qr-theme' ) ),
+								Field::make( 'textarea', 'feature_description', __( 'Feature Description', 'bulk-qr-theme' ) ),
+							]
+						),
+				]
+			)
+			->set_category( 'bulk-qr-theme', 'BQS Blocks', 'admin-appearance' )
+			->set_render_callback( function ( $fields, $attributes, $inner_blocks ) {
+				get_template_part(
+					'template-parts/blocks/features',
 					'block',
+					[
+						'attributes'   => $attributes,
+						'inner_blocks' => $inner_blocks,
+						'fields'       => $fields,
+					]
+				);
+			} );
+
+		// Bulk Generation Block.
+		Block::make( __( 'Bulk Block', 'bulk-qr-theme' ) )
+			->add_fields(
+				[
+					Field::make( 'text', 'eyebrow', __( 'Eyebrow', 'bulk-qr-theme' ) ),
+					Field::make( 'text', 'title', __( 'Title', 'bulk-qr-theme' ) ),
+					Field::make( 'textarea', 'subtitle', __( 'Subtitle', 'bulk-qr-theme' ) ),
+					Field::make( 'complex', 'steps', __( 'Steps', 'bulk-qr-theme' ) )
+						->add_fields(
+							[
+								Field::make( 'image', 'icon', __( 'Icon (SVG/Image)', 'bulk-qr-theme' ) ),
+								Field::make( 'select', 'icon_color', __( 'Icon Color', 'bulk-qr-theme' ) )
+									->add_options( [
+										'orange' => __( 'Orange', 'bulk-qr-theme' ),
+										'purple' => __( 'Purple', 'bulk-qr-theme' ),
+										'blue'   => __( 'Blue', 'bulk-qr-theme' ),
+										'green'  => __( 'Green', 'bulk-qr-theme' ),
+									] ),
+								Field::make( 'text', 'step_title', __( 'Step Title', 'bulk-qr-theme' ) ),
+								Field::make( 'textarea', 'step_description', __( 'Step Description', 'bulk-qr-theme' ) ),
+							]
+						),
+				]
+			)
+			->set_category( 'bulk-qr-theme', 'BQS Blocks', 'admin-appearance' )
+			->set_render_callback( function ( $fields, $attributes, $inner_blocks ) {
+				get_template_part(
+					'template-parts/blocks/bulk',
+					'',
+					[
+						'attributes'   => $attributes,
+						'inner_blocks' => $inner_blocks,
+						'fields'       => $fields,
+					]
+				);
+			} );
+
+		// API Section Block.
+		Block::make( __( 'API Section', 'bulk-qr-theme' ) )
+			->add_fields(
+				[
+					Field::make( 'text', 'eyebrow', __( 'Eyebrow', 'bulk-qr-theme' ) ),
+					Field::make( 'text', 'title', __( 'Title', 'bulk-qr-theme' ) ),
+					Field::make( 'textarea', 'subtitle', __( 'Subtitle', 'bulk-qr-theme' ) ),
+					Field::make( 'text', 'docs_link', __( 'Docs Link', 'bulk-qr-theme' ) ),
+				]
+			)
+			->set_category( 'bulk-qr-theme', 'BQS Blocks', 'admin-appearance' )
+			->set_render_callback( function ( $fields, $attributes, $inner_blocks ) {
+				get_template_part(
+					'template-parts/blocks/api-section',
+					'',
+					[
+						'attributes'   => $attributes,
+						'inner_blocks' => $inner_blocks,
+						'fields'       => $fields,
+					]
+				);
+			} );
+
+		// CTA Block.
+		Block::make( __( 'CTA Block', 'bulk-qr-theme' ) )
+			->add_fields(
+				[
+					Field::make( 'text', 'title', __( 'Title', 'bulk-qr-theme' ) ),
+					Field::make( 'textarea', 'subtitle', __( 'Subtitle', 'bulk-qr-theme' ) ),
+					Field::make( 'text', 'primary_btn_text', __( 'Primary Button Text', 'bulk-qr-theme' ) )
+						->set_width( 50 ),
+					Field::make( 'text', 'primary_btn_link', __( 'Primary Button Link', 'bulk-qr-theme' ) )
+						->set_width( 50 ),
+					Field::make( 'text', 'secondary_btn_text', __( 'Secondary Button Text', 'bulk-qr-theme' ) )
+						->set_width( 50 ),
+					Field::make( 'text', 'secondary_btn_link', __( 'Secondary Button Link', 'bulk-qr-theme' ) )
+						->set_width( 50 ),
+					Field::make( 'complex', 'trust_items', __( 'Trust Items', 'bulk-qr-theme' ) )
+						->add_fields(
+							[
+								Field::make( 'text', 'text', __( 'Text', 'bulk-qr-theme' ) ),
+							]
+						),
+				]
+			)
+			->set_category( 'bulk-qr-theme', 'BQS Blocks', 'admin-appearance' )
+			->set_render_callback( function ( $fields, $attributes, $inner_blocks ) {
+				get_template_part(
+					'template-parts/blocks/cta',
+					'',
 					[
 						'attributes'   => $attributes,
 						'inner_blocks' => $inner_blocks,
@@ -317,7 +530,8 @@ class RegisterCarbonFields {
 					Field::make( 'complex', 'plans_items', __( 'Plans', 'bulk-qr-theme' ) )
 						->add_fields(
 							[
-								Field::make( 'text', 'plan_title', __( 'Plan Title', 'bulk-qr-theme' ) ),
+								Field::make( 'text', 'plan_title', __( 'Plan Title', 'bulk-qr-theme' ) )->set_width( 70 ),
+								Field::make( 'checkbox', 'plan_one_pay', __( 'Plan On Pay', 'bulk-qr-theme' ) )->set_width( 30 )->set_option_value( 'yes' ),
 								Field::make( 'text', 'plan_price_by_month', __( 'Plan Price by Month', 'bulk-qr-theme' ) )
 									->set_width( 50 ),
 								Field::make( 'text', 'plan_price_by_yearly', __( 'Plan Price by Yearly', 'bulk-qr-theme' ) )

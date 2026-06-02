@@ -1,0 +1,188 @@
+// ============================================================
+//  Section: Platform Features — Dark Theme (#0a0a25)
+//  Palette: --blue: #2375E5 / --blueTransition: rgba(35,117,229,0.5)
+// ============================================================
+
+// ── Variables ────────────────────────────────────────────────
+$color-bg:          #0a0a25;
+$color-blue:        #2375E5;
+$color-blue-trans:  rgba(35, 117, 229, 0.5);
+$color-blue-glow:   rgba(35, 117, 229, 0.12);
+
+$color-white:       #ffffff;
+$color-text-muted:  rgba(255, 255, 255, 0.80);
+
+$color-card-bg:     #0f1235;
+$color-card-border: rgba(255, 255, 255, 0.07);
+$color-card-hover:  rgba(255, 255, 255, 0.04);
+
+// Icon accent colors (bg tints on dark)
+$icon-blue:   ($color-blue, rgba(35, 117, 229, 0.15));
+$icon-green:  (#22c55e,     rgba(34, 197, 94,  0.15));
+$icon-yellow: (#eab308,     rgba(234, 179, 8,  0.15));
+$icon-purple: (#a855f7,     rgba(168, 85,  247, 0.15));
+$icon-orange: (#f97316,     rgba(249, 115, 22, 0.15));
+$icon-teal:   (#14b8a6,     rgba(20, 184, 166, 0.15));
+
+$font-heading:  'Sora', sans-serif;
+$font-body:     'DM Sans', sans-serif;
+$transition:    0.3s ease;
+
+// ── Breakpoints ──────────────────────────────────────────────
+$bp-xl: 1199px;
+$bp-lg: 991px;
+$bp-md: 767px;
+$bp-sm: 575px;
+
+// ── Icon mixin ───────────────────────────────────────────────
+@mixin icon-variant($color, $bg) {
+  color: $color;
+  background: $bg;
+  border-color: rgba($color, 0.25);
+}
+
+// ── Section ──────────────────────────────────────────────────
+.features {
+  background-color: $color-bg;
+  padding: 96px 24px 104px;
+  font-family: $font-body;
+
+  @media screen and (max-width: $bp-xl) { padding: 72px 24px 80px; }
+  @media screen and (max-width: $bp-lg) { padding: 60px 16px 68px; }
+  @media screen and (max-width: $bp-md) { padding: 48px 16px 56px; }
+  @media screen and (max-width: $bp-sm) { padding: 40px 12px 48px; }
+
+  // ── Container ──────────────────────────────────────────────
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    @media screen and (max-width: $bp-xl) { max-width: 960px; }
+    @media screen and (max-width: $bp-lg) { max-width: 720px; }
+    @media screen and (max-width: $bp-md) { max-width: 540px; }
+    @media screen and (max-width: $bp-sm) { max-width: 100%; }
+  }
+
+  // ── Header ─────────────────────────────────────────────────
+  &__header {
+    text-align: center;
+    margin-bottom: 64px;
+
+    @media screen and (max-width: $bp-md) { margin-bottom: 40px; }
+  }
+
+  &__eyebrow {
+    display: inline-block;
+    font-family: $font-heading;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    color: $color-blue;
+    text-transform: uppercase;
+    background: rgba(35, 117, 229, 0.1);
+    border: 1px solid rgba(35, 117, 229, 0.25);
+    border-radius: 100px;
+    padding: 5px 14px;
+    margin-bottom: 24px;
+  }
+
+  // h2 — размер из глобальной типографики (36px → 28px @xl)
+  &__title {
+    margin-bottom: 20px !important;
+    line-height: 1.2;
+    // color: #fff !important — задан глобально
+  }
+
+  // p — 18px → 16px из глобальной типографики
+  &__subtitle {
+    font-style: italic;
+    color: $color-text-muted;
+    max-width: 560px;
+    margin-inline: auto;
+    margin-bottom: 0;
+  }
+
+  // ── Cards grid ─────────────────────────────────────────────
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+
+    @media screen and (max-width: $bp-lg) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    @media screen and (max-width: $bp-sm) {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+  }
+
+  // ── Card ───────────────────────────────────────────────────
+  &__card {
+    background: $color-card-bg;
+    border: 1px solid $color-card-border;
+    border-radius: 20px;
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    transition: border-color $transition, transform $transition, box-shadow $transition;
+    cursor: default;
+
+    @media screen and (max-width: $bp-xl) { padding: 28px 24px; }
+    @media screen and (max-width: $bp-sm) { padding: 24px 20px; }
+
+    &:hover {
+      border-color: $color-blue-trans;
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(35, 117, 229, 0.1) inset;
+    }
+  }
+
+  // ── Icon ───────────────────────────────────────────────────
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    border: 1px solid transparent;
+    margin-bottom: 24px;
+    flex-shrink: 0;
+    transition: transform $transition;
+
+    svg, img {
+      display: block;
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      object-fit: contain;
+    }
+
+    .features__card:hover & {
+      transform: scale(1.08);
+    }
+
+    &--blue   { @include icon-variant(#2375E5, rgba(35,  117, 229, 0.15)); }
+    &--green  { @include icon-variant(#22c55e, rgba(34,  197, 94,  0.15)); }
+    &--yellow { @include icon-variant(#eab308, rgba(234, 179, 8,   0.15)); }
+    &--purple { @include icon-variant(#a855f7, rgba(168, 85,  247, 0.15)); }
+    &--orange { @include icon-variant(#f97316, rgba(249, 115, 22,  0.15)); }
+    &--teal   { @include icon-variant(#14b8a6, rgba(20,  184, 166, 0.15)); }
+  }
+
+  // h3 — 30px → 24px из глобальной типографики
+  &__card-title {
+    margin-bottom: 12px !important;
+    // color: #fff !important — задан глобально
+  }
+
+  // p — 18px → 16px
+  &__card-desc {
+    color: $color-text-muted;
+    margin-bottom: 0;
+    line-height: 1.7;
+  }
+}

@@ -28,8 +28,8 @@ footer, header, hgroup, menu, nav, section {
 * {
 	outline: 0 none;
 }
-a{
-	color: #fff !important;
+a:not(.btn){
+	color: #fff;
 	text-decoration: none;
 	font-weight: 700;
 }
@@ -56,23 +56,23 @@ body {
 	&.hidden{
 		overflow: hidden;
 	}
-	&.admin-bar{ 
+	&.admin-bar{
 		&.home{
 			header{
 				& + section{
 					padding-top: 134px;
-				} 
+				}
 			}
 		}
 		header{
-			top: 32px;	
+			top: 32px;
 		}
-	} 
+	}
 	&.home{
 		header{
 			& + section{
 				padding-top: 80px;
-			} 
+			}
 		}
 	}
 }
@@ -90,7 +90,7 @@ section{
 	flex-wrap: wrap;
 	.col-md-6{
 		padding-left: 12px;
-		padding-right: 12px;			
+		padding-right: 12px;
 	}
 }
 
@@ -126,8 +126,8 @@ li{
 			margin-right: auto;
 			transition: all 0.3s ease;
 			background: #2375E5;
-			
-				
+
+
 		}
 		@media screen and (min-width: 1025px){
 			&:hover{
@@ -146,24 +146,32 @@ li{
 button.btn,
 input.btn,
 a.btn{
-	display: flex;
-	flex-direction: row;
 	align-items: center;
+	background: #2375e5;
+	border-radius: 6px;
+	display: inline-flex;
+	flex-direction: row;
 	flex-wrap: wrap;
-	justify-content: center;
 	gap: 10px;
 	height: 40px;
-	border-radius: 6px;
-	padding: 0 24px;
-	max-width: fit-content;
+	justify-content: center;
 	margin-left: auto;
-	margin-right: auto;
-	transition: all 0.3s ease;
-	background: #2375E5;
+	max-width: -moz-fit-content;
+	max-width: fit-content;
+	padding: 0 24px;
+	transition: all .3s ease;
+	color: #fff;
+	margin-right: 20px !important;
+	text-decoration: none;
+
 	@media screen and (min-width: 1025px){
 		&:hover{
 			background: #fff;
 			color: #2375E5  !important;
-		} 
+		}
 	}
+}
+.primary-cta{
+	color: #fff !important;
+	text-decoration: none !important;
 }

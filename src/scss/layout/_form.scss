@@ -483,6 +483,12 @@ form{
                     width: calc(100% - 121px) !important;
                 }
             }
+            @media screen and (max-width: 535px) {
+                .input{
+                    width: 100% !important;
+                }
+            
+            }
             .input{
                 margin-bottom: 0;
                 width: 195px;
@@ -586,6 +592,11 @@ form{
             }
             .selectric-wrapper{
                 width: calc(100% - 121px) !important;
+            }
+		}
+        @media screen and (max-width: 535px) {
+            .selectric-wrapper{
+                width: 100% !important;
             }
 		}
         .selectric{

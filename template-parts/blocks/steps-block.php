@@ -13,6 +13,9 @@ $fields = $args['fields'];
 			<div class="row">
 				<div class="col-12">
 					<h2><?php echo esc_html( $fields['block_title'] ); ?></h2>
+					<?php if ( ! empty( $fields['block_sub_title'] ) ) { ?>
+						<h6><?php echo esc_html( $fields['block_sub_title'] ); ?></h6>
+					<?php } ?>
 				</div>
 			</div>
 		<?php } ?>
@@ -31,6 +34,11 @@ $fields = $args['fields'];
 						<?php } ?>
 						<?php if ( ! empty( $step['step_title'] ) ) { ?>
 							<h4><?php echo esc_html( $step['step_title'] ); ?></h4>
+						<?php } ?>
+						<?php if ( ! empty( $step['step_description'] ) ) { ?>
+							<div class="desctiption">
+								<?php echo wp_kses_post( wpautop( $step['step_description'] ) ); ?>
+							</div>
 						<?php } ?>
 					</div>
 				<?php } ?>
