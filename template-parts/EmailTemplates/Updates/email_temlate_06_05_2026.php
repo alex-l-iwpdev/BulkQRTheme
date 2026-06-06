@@ -81,7 +81,7 @@
 						</table>
 
 						<!-- Sub-eyebrow -->
-      <p style="margin:0 0 16px;text-align:center;font-family:Arial,Helvetica,sans-serif;font-size:13px;font-style:italic;color:rgba(255,255,255,0.55);"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/email_image/zap.svg" width="14" height="14" style="display:inline-block;vertical-align:middle;margin-right:4px;" alt="Rocket"> The biggest BulkQR release so far</p>
+      <p style="margin:0 0 16px;text-align:center;font-family:Arial,Helvetica,sans-serif;font-size:13px;font-style:italic;color:rgba(255,255,255,0.55);"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/email_image/rocket.svg" width="14" height="14" style="display:inline-block;vertical-align:middle;margin-right:4px;" alt="Rocket"> The biggest BulkQR release so far</p>
 
 						<!-- H1 -->
 						<h1 class="hero-title" style="margin:0 0 16px;text-align:center;font-family:Arial,Helvetica,sans-serif;font-size:42px;font-weight:800;line-height:1.15;color:#ffffff;letter-spacing:-0.03em;display:block;">Big Update is Here</h1>
