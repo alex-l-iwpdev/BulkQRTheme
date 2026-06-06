@@ -8,7 +8,7 @@
 $fields     = $args['fields'] ?? [];
 $categories = $fields['faq_categories'] ?? [];
 ?>
-<section class="faq">
+<section class="faq" itemscope itemtype="https://schema.org/FAQPage">
 	<div class="faq__container">
 
 		<!-- Sidebar nav -->
@@ -59,15 +59,17 @@ $categories = $fields['faq_categories'] ?? [];
 						$question = $item['question'] ?? '';
 						$answer   = $item['answer'] ?? '';
 						?>
-						<div class="faq__item <?php echo ( $index === 0 && $f_index === 0 ) ? 'faq__item--open' : ''; ?>">
+						<div class="faq__item <?php echo ( $index === 0 && $f_index === 0 ) ? 'faq__item--open' : ''; ?>" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
 							<button class="faq__q" aria-expanded="<?php echo ( $index === 0 && $f_index === 0 ) ? 'true' : 'false'; ?>">
-								<?php echo esc_html( $question ); ?>
+								<span itemprop="name"><?php echo esc_html( $question ); ?></span>
 								<svg class="faq__arrow" width="18" height="18" viewBox="0 0 18 18" fill="none">
 									<path d="M4 7l5 5 5-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path>
 								</svg>
 							</button>
-							<div class="faq__a">
-								<?php echo apply_filters( 'the_content', $answer ); ?>
+							<div class="faq__a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+								<div itemprop="text">
+									<?php echo apply_filters( 'the_content', $answer ); ?>
+								</div>
 							</div>
 						</div>
 					<?php endforeach; ?>
