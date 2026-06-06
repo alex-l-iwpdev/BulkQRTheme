@@ -1,0 +1,217 @@
+// ============================================================
+//  Section: Comparison — Dark Theme (#0a0a25)
+//  Palette: --blue: #2375E5 / --blueTransition: rgba(35,117,229,0.5)
+// ============================================================
+
+$color-bg:          #0a0a25;
+$color-blue:        #2375E5;
+$color-blue-trans:  rgba(35, 117, 229, 0.5);
+$color-blue-dim:    rgba(35, 117, 229, 0.1);
+
+$color-white:       #ffffff;
+$color-text-muted:  rgba(255, 255, 255, 0.80);
+
+// Table
+$color-table-bg:    #0d1235;
+$color-static-bg:   #0a0f28;
+$color-dynamic-bg:  $color-blue;
+$color-row-border:  rgba(255, 255, 255, 0.06);
+$color-feature-col: rgba(255, 255, 255, 0.03);
+
+$font-heading: 'Sora', sans-serif;
+$font-body:    'DM Sans', sans-serif;
+$transition:   0.3s ease;
+
+$bp-xl: 1199px;
+$bp-lg: 991px;
+$bp-md: 767px;
+$bp-sm: 575px;
+
+// ── Section ──────────────────────────────────────────────────
+.comparison {
+  background-color: $color-bg;
+  padding: 96px 24px 104px;
+  font-family: $font-body;
+
+  @media screen and (max-width: $bp-xl) { padding: 72px 24px 80px; }
+  @media screen and (max-width: $bp-lg) { padding: 60px 16px 68px; }
+  @media screen and (max-width: $bp-md) { padding: 48px 16px 56px; }
+  @media screen and (max-width: $bp-sm) { padding: 40px 12px 48px; }
+
+  // ── Container ──────────────────────────────────────────────
+  &__container {
+    max-width: 900px;
+    margin: 0 auto;
+
+    @media screen and (max-width: $bp-xl) { max-width: 760px; }
+    @media screen and (max-width: $bp-lg) { max-width: 680px; }
+    @media screen and (max-width: $bp-md) { max-width: 540px; }
+    @media screen and (max-width: $bp-sm) { max-width: 100%; }
+  }
+
+  // ── Header ─────────────────────────────────────────────────
+  &__header {
+    text-align: center;
+    margin-bottom: 48px;
+
+    @media screen and (max-width: $bp-md) { margin-bottom: 32px; }
+  }
+
+  &__eyebrow {
+    display: inline-block;
+    font-family: $font-heading;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: rgba(255, 255, 255, 0.65);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 100px;
+    padding: 5px 16px;
+    margin-bottom: 20px;
+  }
+
+  // h2 — глобальная типографика (36px → 28px)
+  &__title {
+    margin-bottom: 0 !important;
+    line-height: 1.2;
+  }
+
+  // ── Table scroll wrapper ────────────────────────────────────
+  &__table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow:
+      0 24px 64px rgba(0, 0, 0, 0.5),
+      0 0 0 1px rgba(255, 255, 255, 0.03) inset;
+  }
+
+  // ── Table ──────────────────────────────────────────────────
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 500px;
+  }
+
+  // ── Header cells ───────────────────────────────────────────
+  &__th {
+    padding: 20px 24px;
+    font-family: $font-heading;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+
+    @media screen and (max-width: $bp-sm) { padding: 16px 14px; font-size: 13px; }
+
+    // Feature label column
+    &--feature {
+      width: 50%;
+      background: $color-table-bg;
+      border-right: 1px solid $color-row-border;
+    }
+
+    // Static column
+    &--static {
+      width: 25%;
+      background: $color-static-bg;
+      color: rgba(255, 255, 255, 0.7);
+      border-right: 1px solid $color-row-border;
+    }
+
+    // Dynamic / BulkQR column
+    &--dynamic {
+      background: $color-dynamic-bg;
+      color: $color-white;
+      display: flex; // overridden by table context — used for alignment
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      // Table th can't use flex, so use inline workaround
+      white-space: nowrap;
+
+      // Actual icon + text alignment
+      svg {
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 6px;
+        position: relative;
+        top: -1px;
+      }
+    }
+  }
+
+  // ── Body rows ──────────────────────────────────────────────
+  &__row {
+    border-bottom: 1px solid $color-row-border;
+    transition: background $transition;
+
+    &:hover {
+      .comparison__td--feature { background: rgba(255,255,255,0.03); }
+      .comparison__td--static  { background: rgba(255,255,255,0.02); }
+      .comparison__td--dynamic { background: rgba(35,117,229,0.18);  }
+    }
+
+    &--last {
+      border-bottom: none;
+    }
+  }
+
+  // ── Body cells ─────────────────────────────────────────────
+  &__td {
+    padding: 20px 24px;
+    vertical-align: middle;
+
+    @media screen and (max-width: $bp-xl) { padding: 18px 20px; }
+    @media screen and (max-width: $bp-sm) { padding: 14px 14px; }
+
+    // Feature name
+    &--feature {
+      background: $color-feature-col;
+      border-right: 1px solid $color-row-border;
+      font-family: $font-heading;
+      font-size: 15px;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.85);
+
+      @media screen and (max-width: $bp-xl) { font-size: 14px; }
+      @media screen and (max-width: $bp-sm) { font-size: 13px; }
+    }
+
+    // Static column cell
+    &--static {
+      background: rgba(255,255,255,0.02);
+      border-right: 1px solid $color-row-border;
+      text-align: center;
+    }
+
+    // Dynamic column cell
+    &--dynamic {
+      background: $color-blue-dim;
+      text-align: center;
+    }
+  }
+
+  // ── Icons ──────────────────────────────────────────────────
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+
+    &--yes {
+      background: rgba(35, 117, 229, 0.15);
+      color: $color-blue;
+      border: 1px solid rgba(35, 117, 229, 0.3);
+    }
+
+    &--no {
+      background: rgba(239, 68, 68, 0.1);
+      color: #f87171;
+      border: 1px solid rgba(239, 68, 68, 0.25);
+    }
+  }
+}

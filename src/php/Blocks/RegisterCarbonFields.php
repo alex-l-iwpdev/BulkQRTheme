@@ -514,6 +514,107 @@ class RegisterCarbonFields {
 				);
 			} );
 
+		// New Hero Block.
+		Block::make( __( 'New Hero', 'bulk-qr-theme' ) )
+			->add_fields(
+				[
+					Field::make( 'text', 'eyebrow', __( 'Eyebrow', 'bulk-qr-theme' ) ),
+					Field::make( 'text', 'title', __( 'Title', 'bulk-qr-theme' ) ),
+					Field::make( 'textarea', 'subtitle', __( 'Subtitle', 'bulk-qr-theme' ) ),
+					Field::make( 'text', 'primary_btn_text', __( 'Primary Button Text', 'bulk-qr-theme' ) )
+						->set_width( 50 ),
+					Field::make( 'text', 'primary_btn_link', __( 'Primary Button Link', 'bulk-qr-theme' ) )
+						->set_width( 50 ),
+					Field::make( 'text', 'secondary_btn_text', __( 'Secondary Button Text', 'bulk-qr-theme' ) )
+						->set_width( 50 ),
+					Field::make( 'text', 'secondary_btn_link', __( 'Secondary Button Link', 'bulk-qr-theme' ) )
+						->set_width( 50 ),
+					Field::make( 'complex', 'trust_items', __( 'Trust Items', 'bulk-qr-theme' ) )
+						->add_fields(
+							[
+								Field::make( 'text', 'text', __( 'Text', 'bulk-qr-theme' ) ),
+							]
+						),
+					Field::make( 'image', 'dashboard_image', __( 'Dashboard Image', 'bulk-qr-theme' ) ),
+				]
+			)
+			->set_category( 'bulk-qr-theme', 'BQS Blocks', 'admin-appearance' )
+			->set_render_callback( function ( $fields, $attributes, $inner_blocks ) {
+				get_template_part(
+					'template-parts/blocks/new-hero',
+					'',
+					[
+						'attributes'   => $attributes,
+						'inner_blocks' => $inner_blocks,
+						'fields'       => $fields,
+					]
+				);
+			} );
+
+		// Solution Block.
+		Block::make( __( 'Solution Block', 'bulk-qr-theme' ) )
+			->add_fields(
+				[
+					Field::make( 'text', 'eyebrow', __( 'Eyebrow', 'bulk-qr-theme' ) ),
+					Field::make( 'text', 'title', __( 'Title', 'bulk-qr-theme' ) ),
+					Field::make( 'textarea', 'subtitle', __( 'Subtitle', 'bulk-qr-theme' ) ),
+					Field::make( 'complex', 'solution_items', __( 'Solution Items', 'bulk-qr-theme' ) )
+						->add_fields(
+							[
+								Field::make( 'image', 'icon', __( 'Icon', 'bulk-qr-theme' ) ),
+								Field::make( 'text', 'label', __( 'Label', 'bulk-qr-theme' ) ),
+							]
+						),
+				]
+			)
+			->set_category( 'bulk-qr-theme', 'BQS Blocks', 'admin-appearance' )
+			->set_render_callback( function ( $fields, $attributes, $inner_blocks ) {
+				get_template_part(
+					'template-parts/blocks/solution',
+					'',
+					[
+						'attributes'   => $attributes,
+						'inner_blocks' => $inner_blocks,
+						'fields'       => $fields,
+					]
+				);
+			} );
+
+		// Comparison Block.
+		Block::make( __( 'Comparison Block', 'bulk-qr-theme' ) )
+			->add_fields(
+				[
+					Field::make( 'text', 'eyebrow', __( 'Eyebrow', 'bulk-qr-theme' ) ),
+					Field::make( 'text', 'title', __( 'Title', 'bulk-qr-theme' ) ),
+					Field::make( 'text', 'static_label', __( 'Static Label', 'bulk-qr-theme' ) )->set_width( 50 ),
+					Field::make( 'text', 'dynamic_label', __( 'Dynamic Label', 'bulk-qr-theme' ) )->set_width( 50 ),
+					Field::make( 'complex', 'comparison_rows', __( 'Comparison Rows', 'bulk-qr-theme' ) )
+						->add_fields(
+							[
+								Field::make( 'text', 'feature_name', __( 'Feature Name', 'bulk-qr-theme' ) ),
+								Field::make( 'checkbox', 'static_value', __( 'Static (Yes/No)', 'bulk-qr-theme' ) )
+									->set_option_value( 'yes' )
+									->set_width( 50 ),
+								Field::make( 'checkbox', 'dynamic_value', __( 'Dynamic (Yes/No)', 'bulk-qr-theme' ) )
+									->set_option_value( 'yes' )
+									->set_width( 50 ),
+							]
+						),
+				]
+			)
+			->set_category( 'bulk-qr-theme', 'BQS Blocks', 'admin-appearance' )
+			->set_render_callback( function ( $fields, $attributes, $inner_blocks ) {
+				get_template_part(
+					'template-parts/blocks/comparison',
+					'',
+					[
+						'attributes'   => $attributes,
+						'inner_blocks' => $inner_blocks,
+						'fields'       => $fields,
+					]
+				);
+			} );
+
 	}
 
 	/**
