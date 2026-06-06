@@ -53,7 +53,7 @@
 	<tr><td align="center" style="padding:32px 16px;">
 
 			<!-- Email card -->
-			<table class="email-wrapper" role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;width:100%;">
+			<table class="email-wrapper" role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;width:100%;margin:0 auto;">
 
 				<!-- ══ HEADER ══════════════════════════════════════════ -->
 				<tr>
@@ -75,16 +75,16 @@
 						<table role="presentation" align="center" cellpadding="0" cellspacing="0" border="0" style="margin:0 auto 16px;">
 							<tr>
 								<td style="background-color:rgba(35,117,229,0.15);border:1px solid rgba(35,117,229,0.35);border-radius:100px;padding:6px 16px;font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:700;color:#2375E5;white-space:nowrap;">
-									&#9889; Biggest Release Yet
+         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/email_image/zap.svg" width="16" height="16" style="display:inline-block;vertical-align:middle;margin-right:4px;" alt="Zap"> Biggest Release Yet
 								</td>
 							</tr>
 						</table>
 
 						<!-- Sub-eyebrow -->
-						<p style="margin:0 0 16px;text-align:center;font-family:Arial,Helvetica,sans-serif;font-size:13px;font-style:italic;color:rgba(255,255,255,0.55);">&#128640; The biggest BulkQR release so far</p>
+      <p style="margin:0 0 16px;text-align:center;font-family:Arial,Helvetica,sans-serif;font-size:13px;font-style:italic;color:rgba(255,255,255,0.55);"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/email_image/zap.svg" width="14" height="14" style="display:inline-block;vertical-align:middle;margin-right:4px;" alt="Rocket"> The biggest BulkQR release so far</p>
 
 						<!-- H1 -->
-						<h1 class="hero-title" style="margin:0 0 16px;text-align:center;font-family:Arial,Helvetica,sans-serif;font-size:42px;font-weight:800;line-height:1.15;color:#ffffff;letter-spacing:-0.03em;">Big Update is Here</h1>
+						<h1 class="hero-title" style="margin:0 0 16px;text-align:center;font-family:Arial,Helvetica,sans-serif;font-size:42px;font-weight:800;line-height:1.15;color:#ffffff;letter-spacing:-0.03em;display:block;">Big Update is Here</h1>
 
 						<!-- Subtitle -->
 						<p style="margin:0 0 32px;text-align:center;font-family:Arial,Helvetica,sans-serif;font-size:15px;color:rgba(255,255,255,0.6);line-height:1.6;">Dynamic QR Codes, Campaign Management, and<br/>Advanced Analytics</p>
@@ -111,22 +111,22 @@
 								<td style="padding:20px 16px 16px;">
 									<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
 										<tr>
-											<td class="stat-cell" align="center" style="padding:8px;">
+											<td class="stat-cell" align="center" style="padding:8px;width:25%;display:table-cell;">
 												<p style="margin:0 0 4px;font-family:Arial,Helvetica,sans-serif;font-size:10px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.08em;">Total Scans</p>
 												<p style="margin:0 0 2px;font-family:Arial,Helvetica,sans-serif;font-size:24px;font-weight:800;color:#ffffff;">284,592</p>
 												<p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:11px;color:#22c55e;">&#9650; +12.4%</p>
 											</td>
-											<td class="stat-cell" align="center" style="padding:8px;">
+											<td class="stat-cell" align="center" style="padding:8px;width:25%;display:table-cell;">
 												<p style="margin:0 0 4px;font-family:Arial,Helvetica,sans-serif;font-size:10px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.08em;">Active QR Codes</p>
 												<p style="margin:0 0 2px;font-family:Arial,Helvetica,sans-serif;font-size:24px;font-weight:800;color:#ffffff;">1,847</p>
 												<p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:11px;color:#22c55e;">&#9650; +6.2%</p>
 											</td>
-											<td class="stat-cell" align="center" style="padding:8px;">
+											<td class="stat-cell" align="center" style="padding:8px;width:25%;display:table-cell;">
 												<p style="margin:0 0 4px;font-family:Arial,Helvetica,sans-serif;font-size:10px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.08em;">Campaigns</p>
 												<p style="margin:0 0 2px;font-family:Arial,Helvetica,sans-serif;font-size:24px;font-weight:800;color:#ffffff;">34</p>
 												<p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:11px;color:#2375E5;">+5 new</p>
 											</td>
-											<td class="stat-cell" align="center" style="padding:8px;">
+											<td class="stat-cell" align="center" style="padding:8px;width:25%;display:table-cell;">
 												<p style="margin:0 0 4px;font-family:Arial,Helvetica,sans-serif;font-size:10px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.08em;">Short Links</p>
 												<p style="margin:0 0 2px;font-family:Arial,Helvetica,sans-serif;font-size:24px;font-weight:800;color:#ffffff;">3,291</p>
 												<p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:11px;color:#22c55e;">&#9650; +22%</p>
@@ -218,30 +218,30 @@
 						<!-- 3 feature cards -->
 						<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
 							<tr>
-								<td class="feature-cell" width="33%" valign="top" style="padding:0 8px 0 0;">
+								<td class="feature-cell" width="33%" valign="top" style="padding:0 8px 0 0;display:table-cell;">
 									<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f7f8fc;border:1px solid #e8eaf2;border-radius:14px;">
 										<tr><td style="padding:20px;">
-												<div style="display:inline-block;width:36px;height:36px;background:rgba(35,117,229,0.1);border:1px solid rgba(35,117,229,0.2);border-radius:10px;text-align:center;line-height:36px;font-size:18px;margin-bottom:12px;">&#128260;</div>
+            <div style="display:inline-block;width:36px;height:36px;background:rgba(35,117,229,0.1);border:1px solid rgba(35,117,229,0.2);border-radius:10px;text-align:center;line-height:36px;font-size:18px;margin-bottom:12px;"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/email_image/refresh-cw.svg" width="20" height="20" style="display:inline-block;vertical-align:middle;" alt="Refresh"></div>
 												<p style="margin:0 0 6px;font-family:Arial,Helvetica,sans-serif;font-size:14px;font-weight:700;color:#101b3e;">Dynamic QR Codes</p>
 												<p style="margin:0 0 12px;font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#6b7a9e;line-height:1.6;font-style:italic;">Update destinations anytime, even after printing. No reprint needed.</p>
 												<span style="display:inline-block;background:rgba(35,117,229,0.1);border:1px solid rgba(35,117,229,0.2);border-radius:100px;padding:3px 10px;font-family:Arial,Helvetica,sans-serif;font-size:10px;font-weight:700;color:#2375E5;">New Feature</span>
 											</td></tr>
 									</table>
 								</td>
-								<td class="feature-cell" width="33%" valign="top" style="padding:0 4px;">
+								<td class="feature-cell" width="33%" valign="top" style="padding:0 4px;display:table-cell;">
 									<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f7f8fc;border:1px solid #e8eaf2;border-radius:14px;">
 										<tr><td style="padding:20px;">
-												<div style="display:inline-block;width:36px;height:36px;background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.2);border-radius:10px;text-align:center;line-height:36px;font-size:18px;margin-bottom:12px;">&#128193;</div>
+            <div style="display:inline-block;width:36px;height:36px;background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.2);border-radius:10px;text-align:center;line-height:36px;font-size:18px;margin-bottom:12px;"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/email_image/layers.svg" width="20" height="20" style="display:inline-block;vertical-align:middle;" alt="Campaign"></div>
 												<p style="margin:0 0 6px;font-family:Arial,Helvetica,sans-serif;font-size:14px;font-weight:700;color:#101b3e;">Campaign Management</p>
 												<p style="margin:0 0 12px;font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#6b7a9e;line-height:1.6;font-style:italic;">Organize QR codes and short links into campaigns with ease.</p>
 												<span style="display:inline-block;background:rgba(249,115,22,0.1);border:1px solid rgba(249,115,22,0.2);border-radius:100px;padding:3px 10px;font-family:Arial,Helvetica,sans-serif;font-size:10px;font-weight:700;color:#f97316;">New Feature</span>
 											</td></tr>
 									</table>
 								</td>
-								<td class="feature-cell" width="33%" valign="top" style="padding:0 0 0 8px;">
+								<td class="feature-cell" width="33%" valign="top" style="padding:0 0 0 8px;display:table-cell;">
 									<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f7f8fc;border:1px solid #e8eaf2;border-radius:14px;">
 										<tr><td style="padding:20px;">
-												<div style="display:inline-block;width:36px;height:36px;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.2);border-radius:10px;text-align:center;line-height:36px;font-size:18px;margin-bottom:12px;">&#128200;</div>
+            <div style="display:inline-block;width:36px;height:36px;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.2);border-radius:10px;text-align:center;line-height:36px;font-size:18px;margin-bottom:12px;"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/email_image/trending-up.svg" width="20" height="20" style="display:inline-block;vertical-align:middle;" alt="Analytics"></div>
 												<p style="margin:0 0 6px;font-family:Arial,Helvetica,sans-serif;font-size:14px;font-weight:700;color:#101b3e;">Advanced Analytics</p>
 												<p style="margin:0 0 12px;font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#6b7a9e;line-height:1.6;font-style:italic;">Track performance per campaign, link, and individual QR code.</p>
 												<span style="display:inline-block;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.2);border-radius:100px;padding:3px 10px;font-family:Arial,Helvetica,sans-serif;font-size:10px;font-weight:700;color:#22c55e;">New Feature</span>
@@ -258,19 +258,19 @@
 					<td style="background-color:#2375E5;padding:24px 32px;">
 						<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
 							<tr>
-								<td class="stat-cell" align="center" style="padding:8px 12px;">
+								<td class="stat-cell" align="center" style="padding:8px 12px;width:25%;display:table-cell;">
 									<p style="margin:0 0 4px;font-family:Arial,Helvetica,sans-serif;font-size:24px;font-weight:800;color:#ffffff;">284K+</p>
 									<p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:11px;color:rgba(255,255,255,0.7);font-style:italic;">Total Scans</p>
 								</td>
-								<td class="stat-cell" align="center" style="padding:8px 12px;border-left:1px solid rgba(255,255,255,0.2);">
+								<td class="stat-cell" align="center" style="padding:8px 12px;border-left:1px solid rgba(255,255,255,0.2);width:25%;display:table-cell;">
 									<p style="margin:0 0 4px;font-family:Arial,Helvetica,sans-serif;font-size:24px;font-weight:800;color:#ffffff;">3 New</p>
 									<p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:11px;color:rgba(255,255,255,0.7);font-style:italic;">Features Launched</p>
 								</td>
-								<td class="stat-cell" align="center" style="padding:8px 12px;border-left:1px solid rgba(255,255,255,0.2);">
+								<td class="stat-cell" align="center" style="padding:8px 12px;border-left:1px solid rgba(255,255,255,0.2);width:25%;display:table-cell;">
 									<p style="margin:0 0 4px;font-family:Arial,Helvetica,sans-serif;font-size:24px;font-weight:800;color:#ffffff;">1,800+</p>
 									<p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:11px;color:rgba(255,255,255,0.7);font-style:italic;">Active QR Codes</p>
 								</td>
-								<td class="stat-cell" align="center" style="padding:8px 12px;border-left:1px solid rgba(255,255,255,0.2);">
+								<td class="stat-cell" align="center" style="padding:8px 12px;border-left:1px solid rgba(255,255,255,0.2);width:25%;display:table-cell;">
 									<p style="margin:0 0 4px;font-family:Arial,Helvetica,sans-serif;font-size:24px;font-weight:800;color:#ffffff;">34</p>
 									<p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:11px;color:rgba(255,255,255,0.7);font-style:italic;">Campaigns Active</p>
 								</td>
@@ -291,10 +291,10 @@
 									<p style="margin:0 0 10px;font-family:Arial,Helvetica,sans-serif;font-size:14px;font-weight:700;color:#ffffff;">Traditional QR Tools</p>
 									<span style="display:inline-block;background:rgba(239,68,68,0.12);border:1px solid rgba(239,68,68,0.25);border-radius:100px;padding:3px 10px;font-size:10px;font-weight:700;color:#f87171;font-family:Arial,Helvetica,sans-serif;margin-bottom:14px;">Limited</span>
 									<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
-										<tr><td style="padding:5px 0;font-family:Arial,Helvetica,sans-serif;font-size:12px;color:rgba(255,255,255,0.45);">&#10060; Dynamic QR Codes</td></tr>
-										<tr><td style="padding:5px 0;font-family:Arial,Helvetica,sans-serif;font-size:12px;color:rgba(255,255,255,0.45);">&#10060; Bulk Generation</td></tr>
-										<tr><td style="padding:5px 0;font-family:Arial,Helvetica,sans-serif;font-size:12px;color:rgba(255,255,255,0.45);">&#10060; Campaign Tracking</td></tr>
-										<tr><td style="padding:5px 0;font-family:Arial,Helvetica,sans-serif;font-size:12px;color:rgba(255,255,255,0.45);">&#10060; Individual QR Analytics</td></tr>
+          <tr><td style="padding:5px 0;font-family:Arial,Helvetica,sans-serif;font-size:12px;color:rgba(255,255,255,0.45);"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/email_image/x-circle.svg" width="12" height="12" style="display:inline-block;vertical-align:middle;margin-right:6px;" alt="No"> Dynamic QR Codes</td></tr>
+<tr><td style="padding:5px 0;font-family:Arial,Helvetica,sans-serif;font-size:12px;color:rgba(255,255,255,0.45);"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/email_image/x-circle.svg" width="12" height="12" style="display:inline-block;vertical-align:middle;margin-right:6px;" alt="No"> Bulk Generation</td></tr>
+<tr><td style="padding:5px 0;font-family:Arial,Helvetica,sans-serif;font-size:12px;color:rgba(255,255,255,0.45);"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/email_image/x-circle.svg" width="12" height="12" style="display:inline-block;vertical-align:middle;margin-right:6px;" alt="No"> Campaign Tracking</td></tr>
+<tr><td style="padding:5px 0;font-family:Arial,Helvetica,sans-serif;font-size:12px;color:rgba(255,255,255,0.45);"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/email_image/x-circle.svg" width="12" height="12" style="display:inline-block;vertical-align:middle;margin-right:6px;" alt="No"> Individual QR Analytics</td></tr>
 									</table>
 								</td>
 								<td width="4%"></td>
@@ -303,10 +303,10 @@
 									<p style="margin:0 0 10px;font-family:Arial,Helvetica,sans-serif;font-size:14px;font-weight:700;color:#ffffff;">BulkQR</p>
 									<span style="display:inline-block;background:rgba(34,197,94,0.12);border:1px solid rgba(34,197,94,0.25);border-radius:100px;padding:3px 10px;font-size:10px;font-weight:700;color:#22c55e;font-family:Arial,Helvetica,sans-serif;margin-bottom:14px;">Full Access</span>
 									<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
-										<tr><td style="padding:5px 0;font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#ffffff;">&#9989; Dynamic QR Codes</td></tr>
-										<tr><td style="padding:5px 0;font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#ffffff;">&#9989; Bulk Generation</td></tr>
-										<tr><td style="padding:5px 0;font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#ffffff;">&#9989; Campaign Tracking</td></tr>
-										<tr><td style="padding:5px 0;font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#ffffff;">&#9989; Individual QR Analytics</td></tr>
+          <tr><td style="padding:5px 0;font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#ffffff;"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/email_image/check-circle.svg" width="12" height="12" style="display:inline-block;vertical-align:middle;margin-right:6px;" alt="Yes"> Dynamic QR Codes</td></tr>
+<tr><td style="padding:5px 0;font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#ffffff;"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/email_image/check-circle.svg" width="12" height="12" style="display:inline-block;vertical-align:middle;margin-right:6px;" alt="Yes"> Bulk Generation</td></tr>
+<tr><td style="padding:5px 0;font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#ffffff;"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/email_image/check-circle.svg" width="12" height="12" style="display:inline-block;vertical-align:middle;margin-right:6px;" alt="Yes"> Campaign Tracking</td></tr>
+<tr><td style="padding:5px 0;font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#ffffff;"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/email_image/check-circle.svg" width="12" height="12" style="display:inline-block;vertical-align:middle;margin-right:6px;" alt="Yes"> Individual QR Analytics</td></tr>
 									</table>
 								</td>
 							</tr>
@@ -419,7 +419,7 @@
 						<!-- Badge -->
 						<table role="presentation" align="center" cellpadding="0" cellspacing="0" border="0" style="margin:0 auto 20px;">
 							<tr>
-								<td style="background:rgba(34,197,94,0.15);border:1px solid rgba(34,197,94,0.3);border-radius:100px;padding:5px 14px;font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:700;color:#22c55e;">&#11088; Now Available</td>
+        <td style="background:rgba(34,197,94,0.15);border:1px solid rgba(34,197,94,0.3);border-radius:100px;padding:5px 14px;font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:700;color:#22c55e;"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/email_image/star.svg" width="12" height="12" style="display:inline-block;vertical-align:middle;margin-right:4px;" alt="Star"> Now Available</td>
 							</tr>
 						</table>
 
