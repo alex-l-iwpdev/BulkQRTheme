@@ -8,6 +8,7 @@
 
 namespace Iwpdev\BulkQrTheme;
 
+use Iwpdev\BulkQrTheme\Admin\NewsletterAdminPage;
 use Iwpdev\BulkQrTheme\Blocks\RegisterCarbonFields;
 use Iwpdev\BulkQrTheme\DB\CreateCustomTables;
 use Iwpdev\BulkQrTheme\Subscribe\SubscribeMailNews;
@@ -48,6 +49,7 @@ class Main {
 		add_filter( 'upload_mimes', [ $this, 'svg_upload_allow' ] );
 
 		new RegisterCarbonFields();
+		new NewsletterAdminPage();
 		new SubscribeMailNews();
 		new CreateCustomTables();
 
