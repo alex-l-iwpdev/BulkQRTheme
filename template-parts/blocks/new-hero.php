@@ -42,7 +42,7 @@ $dashboard_image    = $fields['dashboard_image'] ?? '';
 		<!-- Buttons -->
 		<div class="hero__actions">
 			<?php if ( $primary_btn_text && $primary_btn_link ) : ?>
-				<a href="<?php echo esc_url( $primary_btn_link ); ?>" class="hero__btn hero__btn--primary">
+				<a href="#" data-modal="sign-up" class="hero__btn hero__btn--primary">
 					<?php echo esc_html( $primary_btn_text ); ?>
 					<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
 						<path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
